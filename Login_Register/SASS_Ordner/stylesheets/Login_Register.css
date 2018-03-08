@@ -1,0 +1,200 @@
+/* line 18, ../sass/Login_Register.scss */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* line 22, ../sass/Login_Register.scss */
+html {
+  overflow-y: scroll;
+}
+
+/* line 26, ../sass/Login_Register.scss */
+body {
+  background: #c1bdba;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+/* line 31, ../sass/Login_Register.scss */
+a {
+  text-decoration: none;
+  color: #BDD684;
+  transition: .5s ease;
+}
+/* line 35, ../sass/Login_Register.scss */
+a:hover {
+  color: #b3d071;
+}
+
+/* line 40, ../sass/Login_Register.scss */
+.form {
+  background: rgba(16, 34, 43, 0.9);
+  padding: 40px;
+  max-width: 600px;
+  margin: 40px auto;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px 4px rgba(16, 34, 43, 0.3);
+}
+
+/* line 49, ../sass/Login_Register.scss */
+.tab-group {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+/* line 53, ../sass/Login_Register.scss */
+.tab-group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 58, ../sass/Login_Register.scss */
+.tab-group li a {
+  display: block;
+  text-decoration: none;
+  padding: 15px;
+  background: rgba(226, 240, 214, 0.25);
+  color: #E2F0D6;
+  font-size: 20px;
+  float: left;
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+  transition: .5s ease;
+}
+/* line 70, ../sass/Login_Register.scss */
+.tab-group li a:hover {
+  background: #b3d071;
+  color: #ffffff;
+}
+/* line 75, ../sass/Login_Register.scss */
+.tab-group .active a {
+  background: #BDD684;
+  color: #ffffff;
+}
+
+/* line 81, ../sass/Login_Register.scss */
+.tab-content > div:last-child {
+  display: none;
+}
+
+/* line 86, ../sass/Login_Register.scss */
+h1 {
+  text-align: center;
+  color: #ffffff;
+  font-weight: 300;
+  margin: 0 0 40px;
+}
+
+/* line 93, ../sass/Login_Register.scss */
+label {
+  position: absolute;
+  transform: translateY(6px);
+  left: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 0.25s ease;
+  -webkit-backface-visibility: hidden;
+  pointer-events: none;
+  font-size: 22px;
+}
+/* line 102, ../sass/Login_Register.scss */
+label .req {
+  margin: 2px;
+  color: #BDD684;
+}
+
+/* line 108, ../sass/Login_Register.scss */
+label.active {
+  transform: translateY(50px);
+  left: 2px;
+  font-size: 14px;
+}
+/* line 112, ../sass/Login_Register.scss */
+label.active .req {
+  opacity: 0;
+}
+
+/* line 117, ../sass/Login_Register.scss */
+label.highlight {
+  color: #ffffff;
+}
+
+/* line 121, ../sass/Login_Register.scss */
+input, textarea {
+  font-size: 22px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 5px 10px;
+  background: none;
+  background-image: none;
+  border: 1px solid #E2F0D6;
+  color: #ffffff;
+  border-radius: 0;
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+/* line 133, ../sass/Login_Register.scss */
+input:focus, textarea:focus {
+  outline: 0;
+  border-color: #BDD684;
+}
+
+/* line 139, ../sass/Login_Register.scss */
+textarea {
+  border: 2px solid #E2F0D6;
+  resize: vertical;
+}
+
+/* line 144, ../sass/Login_Register.scss */
+.field-wrap {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+/* line 150, ../sass/Login_Register.scss */
+.top-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 156, ../sass/Login_Register.scss */
+.top-row > div {
+  float: left;
+  width: 48%;
+  margin-right: 4%;
+}
+/* line 160, ../sass/Login_Register.scss */
+.top-row > div:last-child {
+  margin: 0;
+}
+
+/* line 166, ../sass/Login_Register.scss */
+.button {
+  border: 0;
+  outline: none;
+  border-radius: 0;
+  padding: 15px 0;
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  background: #BDD684;
+  color: #ffffff;
+  transition: all 0.5s ease;
+  -webkit-appearance: none;
+}
+/* line 179, ../sass/Login_Register.scss */
+.button:hover, .button:focus {
+  background: #b3d071;
+}
+
+/* line 184, ../sass/Login_Register.scss */
+.button-block {
+  display: block;
+  width: 100%;
+}
+
+/* line 189, ../sass/Login_Register.scss */
+.forgot {
+  margin-top: -20px;
+  text-align: right;
+}
