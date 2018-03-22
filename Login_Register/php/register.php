@@ -1,15 +1,19 @@
 <?php
 $pdo = new PDO('mysql:host=localhost;dbname=my_own_cookbook', 'root', '');
 
-$neuer_user = array();
+$new_user = array();
 
-//hier dann eben entsprechend den Inhalt aus den Feldern ziehen
-
-$neuer_user['first_name'] = 'Marcel';	
-$neuer_user['last_name'] = 'Vidas';
-$neuer_user['email'] = 'info@php-einfach.de';
-$neuer_user['password'] = 'fdnjkfjnaslk';
+$new_user["first_name"] = $_POST["first_name"];
+$new_user["last_name"] = $_POST["last_name"];
+$new_user["email"] = $_POST["email"];
+$new_user["password"] = $_POST["password"];
  
-$statement = $pdo->prepare("INSERT INTO user (first_name, last_name, email, password) VALUES (:first_name, :last_name, :email, :password)");
-$statement->execute($neuer_user);   
+ echo "First name: " .$new_user["first_name"] ."<br/>";
+ echo "Last name: " .$new_user["last_name"] ."<br/>";
+ echo "Email: " .$new_user["email"] ."<br/>";
+ echo "PW: " .$new_user["password"];
+ 
+ 
+//$statement = $pdo->prepare("INSERT INTO user (first_name, last_name, email, password) VALUES (:first_name, :last_name, :email, :password)");
+//$statement->execute($new_user);   
 ?>
