@@ -1,0 +1,77 @@
+body {
+    background: url("pexels-photo-461428.jpeg") no-repeat;
+    background-size: 100% auto;
+    z-index: 1;
+    background-color: hsla(0,0%,100%,0.20);
+    background-blend-mode: overlay;
+    font-family: 'Titillium Web', sans-serif;
+    margin: 0%;
+}
+
+article {
+    text-align: left;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 100px black;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 10%;
+    padding: 2%;
+}
+
+header {
+    display: block;
+    background-color: #BDD684;
+    text-decoration: none;
+    padding: 20px 30px;
+}
+
+.button {
+    -webkit-tap-highlight-color: transparent;
+    border-radius: 100px;
+    border: 0;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    cursor: pointer;
+    font-size: 1.2em;
+    color: white;
+    margin-left: 85%;
+    outline: none;
+    overflow: hidden;
+    padding: 1em 2em;
+    position: relative;
+    width: 300px;
+}
+
+.button:hover {
+    font-weight: bold;
+    transform: translateY(-3px);
+}
+
+.button--white {
+    color: white;
+}
+.pattern {
+    background: #b3d071;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.bg1 {
+    background-image: url("button.jpg");
+}
+
+.inner {
+    height: 100px;
+    width: 400px;
+}
+.text {
+    position: relative;
+    opacity: .7;
+}
+.button:active .target {
+    opacity: 0.7;
+    transition: opacity 100ms;
+}
