@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href=".\SASS_Ordner\stylesheets\Login_Register.css" \>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="Login_Register.js"></script>
+	<script src=".\php\login.php"></script>
 </head>
 <body>
 <div class="form">
@@ -61,7 +62,7 @@
         <div id="login">
             <h1>Welcome Back!</h1>
 
-            <form action="/" method="post">
+            <form action=".\php\login.php" method="post">
 
                 <div class="field-wrap">
                     <label>
@@ -79,7 +80,7 @@
 
                 <p class="forgot"><a href="#">Forgot Password?</a></p>
 
-                <button class="button button-block"/>Log In</button>
+                <button class="button button-block" type="submit"/>Log In</button>
 
             </form>
 
