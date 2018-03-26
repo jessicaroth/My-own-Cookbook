@@ -1,27 +1,39 @@
 <?php
- 
-      $pdo = new PDO('mysql:host=localhost;dbname=my_own_cookbook', 'root', '');
+
+
+$conn = new mysqli('localhost', 'root', '', 'my_own_cookbook');
+  if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+  else {
+      echo "DB exists";
 
       $email = $_POST["email"];
 	  $entered_password = $_POST["password"];
 	  $realpw = "";
-
-      $statement = $pdo->prepare("SELECT password FROM user WHERE email = :email");
-      $statement->execute(array('email' => $email));   
-
+		
+		$statement = $conn->prepare("SELECT password FROM user WHERE email = ?");
+		$statement->bind_param("s", $email);
+		/* execute query */
+		$statement->execute();
+        $statement->bind_result($password);
+        $statement->fetch();
+		$realpw = $password;
+		
+	echo "Passwort: ".$realpw."<br/>";
+	echo "Entered Passwort:" . $entered_password ."<br/>";
+	
 	  
-	  // vielleicht hier noch überprüfen, ob es nur ein Passwort gibt
-        while($row = $statement->fetch()) {
-		  $realpw = $row['password']; 
-          echo "Passwort: ".$realpw."<br/>";
-		  echo "Entered Passwort:" . $entered_password ."<br/>";
-        }
-	  
-	  if($realpw = $entered_password){
+	  if($realpw == $entered_password){
 		  echo "Sucessfully Logged in";
+		  //hier natürlich die richtige Seite einfügen
+		  //header('Location:https://www.ibm.com/de-de/');
+		  
 	  }
 	  else{
 		  echo "You might want to try this again";
 	  }
+	  
+  }
 ?>
 
