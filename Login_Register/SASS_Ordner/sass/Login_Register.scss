@@ -1,5 +1,6 @@
-@import "compass/css3";
+//@import "compass/css3";
 
+/*Definition of colors*/
 $body-bg: #c1bdba;
 $form-bg: #10222B;
 $white: #ffffff;
@@ -15,6 +16,7 @@ $normal: 400;
 $bold: 600;
 $br: 4px;
 
+/*Basics for html and body like background*/
 *, *:before, *:after {
     box-sizing: border-box;
 }
@@ -28,6 +30,7 @@ body {
     font-family: 'Titillium Web', sans-serif;
 }
 
+/*Link styling*/
 a {
     text-decoration:none;
     color:$main;
