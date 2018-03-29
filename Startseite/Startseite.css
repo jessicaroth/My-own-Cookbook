@@ -28,6 +28,16 @@ body {
     margin: 0%;
 }
 
+.getränke {
+    background-image: url("../possible_images/drinks/pexels-photo-374885.jpeg");
+    background-size: 100% auto;
+    z-index: 1;
+    background-color: hsla(0,0%,100%,0.20);
+    background-blend-mode: overlay;
+    font-family: 'Titillium Web', sans-serif;
+    margin: 0%;
+}
+
 article {
     text-align: left;
     background-color: white;
