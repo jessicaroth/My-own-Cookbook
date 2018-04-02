@@ -8,7 +8,7 @@ body {
     margin: 0%;
 }
 
-.startseite_Login {
+.landing_page_login {
     background-image: url("pexels-photo-798282.jpeg");
     background-size: 100% auto;
     z-index: 1;
@@ -19,7 +19,7 @@ body {
 }
 
 .cookbook {
-    background-image: url("../Cookbook/blur-blurred-book-46274.jpg");
+    background-image: url("../cookbook/blur-blurred-book-46274.jpg");
     background-size: 100% auto;
     z-index: 1;
     background-color: hsla(0,0%,100%,0.20);
@@ -29,7 +29,7 @@ body {
 }
 
 .getränke {
-    background-image: url("../possible_images/drinks/pexels-photo-374885.jpeg");
+    background-image: url("../images/drinks/pexels-photo-374885.jpeg");
     background-size: 100% auto;
     z-index: 1;
     background-color: hsla(0,0%,100%,0.20);
