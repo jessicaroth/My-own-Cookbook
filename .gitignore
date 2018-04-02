@@ -1,34 +1,3 @@
-# Add any directories, files, or patterns you don't want to be tracked by version control
-*.aux
-*.glo
-*.idx
-*.log
-*.toc
-*.ist
-*.acn
-*.acr
-*.alg
-*.bbl
-*.blg
-*.dvi
-*.glg
-*.lol
-*.gls
-*.ilg
-*.ind
-*.lof
-*.lot
-*.maf
-*.mtc
-*.mtc1
-*.out
-*.synctex.gz
-MasterThesisMichaelHerwig.pdf
-MasterThesisMichaelHerwig.run.xml
-MasterThesisMichaelHerwig.bcf
-literatur.bib.sav
-*.bib.bak
-
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and Webstorm
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
@@ -43,7 +12,7 @@ Login_Register\SASS_Ordner\.sass-cache
 .idea/misc.xml
 .idea/vcs.xml
 .idea/modules.xml
-.idea/masterthesismichael.iml
+.idea/my-own-cookbook.iml
 
 
 # Sensitive or high-churn files:
@@ -87,6 +56,3 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
-
-# Don't save the compiled Python files
-*.pyc
