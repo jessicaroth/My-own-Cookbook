@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Rezepte</title>
+<script src="ingredient.js"></script>
+</head>
+
+<body>
+
+<form action=".\create_new_recipe.php" method="post">
+
+  <p>Name:  
+    <input name="name_recipe" type="text" size="50" maxlength="50" value="">
+  </p>
+
+  <p>Kategorie:
+    <select name="category" size="1">      
+      <option>Getränke</option>      
+	  <option>Vorspeise</option>      
+	  <option>Hauptspeise</option>      
+	  <option>Dessert</option>
+      <option>Brotzeit</option>
+      <option>Sonstige</option>	  
+	</select>  
+  </p>
+  
+  <p>Für 
+    <input name="number_person" size="1" maxlength="3">
+  Person(en)
+  </p>
+  
+  
+  <!--Hier muss ich mir noch was überlegen, wie ich die Zutaten schön darstelle-->
+  <div name="ingredients" id="ingredients">
+  <p>Zutaten:</p>
+    <!--<textarea cols="100" rows="20"></textarea> -->
+	<!--<input name="measure_0" size="3" maxlength="6">-->
+	<input name="ingredient_0" type="text" size="20" maxlength="30">
+	<br/>
+  </div>
+  <br/>
+  <input type="button" name="add_ingredient" value="Füge Zutat hinzu" onclick="addFields()">
+  
+  <p>Ablauf:</p>  
+    <textarea cols="100" rows="10" name="process"></textarea> 
+	
+  <br/><br/>
+  <input type="submit" value="Rezept speichern">
+</form>
+  
+</body>
+
+
+<script>
+//hier am besten noch eine bessere Variante finden, um eine globale Variable zu definieren
+var id = 0;
+</script>
+
+</html>
