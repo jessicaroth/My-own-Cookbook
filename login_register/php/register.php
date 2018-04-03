@@ -1,36 +1,8 @@
 <?php
 
 
-// Create connection
-$conn = new mysqli('localhost', 'root', '');
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully" ."<br/>";
-
-//Create data base if not exists
-$sql = "CREATE DATABASE IF NOT EXISTS my_own_cookbook";		//hier kommt mal my_own_cookbook hin
-$conn->query($sql);
-$conn->close();
-
-//Create table if not exists
-$conn = new mysqli('localhost', 'root', '', 'my_own_cookbook');
-  $sqltabelle = "CREATE TABLE IF NOT EXISTS user ( 
-  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , 
-  first_name VARCHAR(255) NOT NULL , 
-  last_name VARCHAR(255) NOT NULL , 
-  email VARCHAR(255) NOT NULL , 
-  password VARCHAR(255) NOT NULL
-  )";
-$conn->query($sqltabelle);
-
-
-//$pdo = new PDO('mysql:host=localhost;dbname=my_own_cookbook', 'root', '');		//hier auch my_own_cookbook
-
-$first_name = $_POST["first_name"];
+if (isset($_GET)) {
+	$first_name = $_POST["first_name"];
 $last_name = $_POST["last_name"];
 $email = $_POST["email"];
 $password = $_POST["password"];
@@ -40,29 +12,110 @@ $password = $_POST["password"];
  //echo "Email: " .$email ."<br/>";
  //echo "PW: " .$password;
  
-//check if email exists
-        $statement = $conn->prepare("SELECT COUNT(email) FROM user WHERE email = ?");
-		$statement->bind_param("s", $email);
-		/* execute query */
-		$statement->execute();
-        $statement->bind_result($count);
-        $statement->fetch();
-		$statement->close();
+ create_db();
+ create_table();
+ $count = check_email($email);
+ if($count == 0){
+ register_into_db($first_name, $last_name, $email, $password);
+ 
+ }
+ else{
+ echo "email already taken";
+ //TODO
+ }
+ 	
+
+}
+
+function connect_mysql_db(){
+$mysqli = new mysqli("localhost", "root", "");
+    if ($mysqli->connect_errno) {
+      echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    return $mysqli;
+}
+
+
+function connect_mysql_oo() {
+    $mysqli = new mysqli("localhost", "root", "", "my_own_cookbook");
+    $mysqli->set_charset("utf8");
+    if ($mysqli->connect_errno) {
+      echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    return $mysqli;
+  }
+
+function create_db(){
+	$mysqli = connect_mysql_db();
+$sql = "CREATE DATABASE IF NOT EXISTS my_own_cookbook";
+$mysqli->query($sql);
+$mysqli->close();
+}
+  
+function create_table(){
+	
+  $mysqli = connect_mysql_oo();
+  $sqltabelle = "CREATE TABLE IF NOT EXISTS user ( 
+  id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , 
+  first_name VARCHAR(255) NOT NULL , 
+  last_name VARCHAR(255) NOT NULL , 
+  email VARCHAR(255) NOT NULL , 
+  password VARCHAR(255) NOT NULL
+  )";
+$mysqli->query($sqltabelle);
+$mysqli->close();
+
+}
+
+function check_email($email) {
+    $mysqli = connect_mysql_oo();
+	
+	//echo "entered qps" . $email ."<br/>";
+
+
+    if (!($stmt = $mysqli->prepare("SELECT COUNT(email) FROM user WHERE email = ?"))) {
+      echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+    }
+    if (!$stmt->bind_param("s", $email)) {
+      echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+    }
+
+    if (!$stmt->execute()) {
+      echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+    }
+	
+	$stmt->bind_result($count);
+    $stmt->fetch();
+	//echo "Done PW" .$realpw ."<br/>";
+	return $count;
 		
-		echo $count."<br/>";
-		if($count == 0){
-			$statement = $conn->prepare("INSERT INTO user (first_name, last_name, email, password) VALUES (?, ?, ?, ?)");
-			$statement->bind_param("ssss", $first_name, $last_name, $email, $password);   
-			$statement->execute();
-			echo "Sucessfully Logged in";
-			//hier natürlich die richtige Seite einfügen
-			//header('Location:https://www.ibm.com/de-de/');
-			$statement->close();
-		}
-		else{
-		//Email already taken
-		}
+    $mysqli->close();
+  }
+
+  
+function register_into_db($first_name, $last_name, $email, $password) {
+    $mysqli = connect_mysql_oo();
+	
+	//echo "entered qps" . $email ."<br/>";
+
+
+    if (!($stmt = $mysqli->prepare("INSERT INTO user (first_name, last_name, email, password) VALUES (?, ?, ?, ?)"))) {
+      echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+    }
+    if (!$stmt->bind_param("ssss", $first_name, $last_name, $email, $password)) {
+      echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+    }
+
+    if (!$stmt->execute()) {
+      echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+    }
+	
+	echo "Sucessfully Registered";
+	//echo "Done PW" .$realpw ."<br/>";
 		
-  $conn->close();
-		  
+    $mysqli->close();
+	
+  }
+  
 ?>

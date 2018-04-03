@@ -1,39 +1,64 @@
 <?php
 
-
-$conn = new mysqli('localhost', 'root', '', 'my_own_cookbook');
-  if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-  else {
-      echo "DB exists";
-
-      $email = $_POST["email"];
-	  $entered_password = $_POST["password"];
-	  $realpw = "";
-		
-		$statement = $conn->prepare("SELECT password FROM user WHERE email = ?");
-		$statement->bind_param("s", $email);
-		/* execute query */
-		$statement->execute();
-        $statement->bind_result($password);
-        $statement->fetch();
-		$realpw = $password;
-		
-	echo "Passwort: ".$realpw."<br/>";
-	echo "Entered Passwort:" . $entered_password ."<br/>";
+if (isset($_GET)) {
+	$email = $_POST["email"];
+    $entered_password = $_POST["password"];
 	
-	  
+	echo $email ."<br/>";
+    $realpw = query_prepared_statement($email);
+	echo "Passwort: ".$realpw."<br/>";
+	$entered_password = $_POST["password"];
+	echo "Entered Passwort:" . $entered_password ."<br/>";
+	check_pw($entered_password, $realpw);
+}
+
+  function connect_mysql_oo() {
+    $mysqli = new mysqli("localhost", "root", "", "my_own_cookbook");
+    $mysqli->set_charset("utf8");
+    if ($mysqli->connect_errno) {
+      echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    return $mysqli;
+  }
+  
+  function query_prepared_statement($email) {
+    $mysqli = connect_mysql_oo();
+	
+	//echo "entered qps" . $email ."<br/>";
+	
+	$mysqli = connect_mysql_oo();
+
+
+    if (!($stmt = $mysqli->prepare("SELECT password FROM user WHERE email = ?"))) {
+      echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+    }
+    if (!$stmt->bind_param("s", $email)) {
+      echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+    }
+
+    if (!$stmt->execute()) {
+      echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+    }
+	
+	$stmt->bind_result($password);
+    $stmt->fetch();
+	$realpw = $password;
+	//echo "Done PW" .$realpw ."<br/>";
+	return $realpw;
+		
+    $mysqli->close();
+  }
+
+	function check_pw($entered_password, $realpw){
 	  if($realpw == $entered_password){
 		  echo "Sucessfully Logged in";
 		  //hier natürlich die richtige Seite einfügen
-		  //header('Location:https://www.ibm.com/de-de/');
-		  
+		  //header('Location:https://www.ibm.com/de-de/'); 
 	  }
 	  else{
 		  echo "You might want to try this again";
 	  }
+	}
 	  
-  }
 ?>
 
