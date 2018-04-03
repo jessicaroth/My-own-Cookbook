@@ -113,6 +113,7 @@ function register_into_db($first_name, $last_name, $email, $password) {
 	
 	echo "Sucessfully Registered";
 	//echo "Done PW" .$realpw ."<br/>";
+	header('Location:./../../landing_page/landing_page_after_Login.html'); 
 		
     $mysqli->close();
 	

@@ -53,7 +53,7 @@ if (isset($_GET)) {
 	  if($realpw == $entered_password){
 		  echo "Sucessfully Logged in";
 		  //hier natürlich die richtige Seite einfügen
-		  //header('Location:https://www.ibm.com/de-de/'); 
+		  header('Location:./../../landing_page/landing_page_after_Login.html'); 
 	  }
 	  else{
 		  echo "You might want to try this again";
