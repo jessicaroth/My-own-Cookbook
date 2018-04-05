@@ -6,36 +6,19 @@ body {
     background-blend-mode: overlay;
     font-family: 'Titillium Web', sans-serif;
     margin: 0%;
+    background-repeat: no-repeat;
 }
 
 .landing_page_login {
     background-image: url("pexels-photo-798282.jpeg");
-    background-size: 100% auto;
-    z-index: 1;
-    background-color: hsla(0,0%,100%,0.20);
-    background-blend-mode: overlay;
-    font-family: 'Titillium Web', sans-serif;
-    margin: 0%;
 }
 
 .cookbook {
     background-image: url("../cookbook/blur-blurred-book-46274.jpg");
-    background-size: 100% auto;
-    z-index: 1;
-    background-color: hsla(0,0%,100%,0.20);
-    background-blend-mode: overlay;
-    font-family: 'Titillium Web', sans-serif;
-    margin: 0%;
 }
 
 .getränke {
     background-image: url("../images/drinks/pexels-photo-374885.jpeg");
-    background-size: 100% auto;
-    z-index: 1;
-    background-color: hsla(0,0%,100%,0.20);
-    background-blend-mode: overlay;
-    font-family: 'Titillium Web', sans-serif;
-    margin: 0%;
 }
 
 article {
@@ -115,4 +98,25 @@ header {
 .button:active .target {
     opacity: 0.7;
     transition: opacity 100ms;
+}
+
+.addbutton {
+    background: #2F657F;
+    color: white;
+    text-decoration: none;
+    outline: none;
+    font-weight: bold;
+    font-size: xx-large;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: white;
+    cursor: pointer;
+    float: right;
+
+}
+.addbutton:hover{
+    box-shadow: 3px 3px 6px #10222B;
+    transform: translateY(-3px);
 }
