@@ -18,8 +18,10 @@ function connect_mysql_oo() {
   
 function show_recipe($r_id) {
     $mysqli = connect_mysql_oo();
+	
+	//"SELECT title FROM recipe r, ingredient i WHERE r_id = ? JOIN r.r_id = i.r_id"
 
-    if (!($stmt = $mysqli->prepare("SELECT title FROM recipe WHERE r_id = ?"))) {
+    if (!($stmt = $mysqli->prepare("SELECT r.title, r.category, r.created_by, r.nr_person, r.process, i.ingredient FROM recipe WHERE r_id = ? "))) {
       echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
     }
     if (!$stmt->bind_param("i", $r_id)) {
@@ -31,10 +33,10 @@ function show_recipe($r_id) {
     }
 	
 	//header('Location:);
-	$stmt->bind_result($title);
+	$stmt->bind_result($title, $category, $created_by, $nr_person, $process, $ingredient);
     $stmt->fetch();
 	
-	echo $title;
+	echo $title. $category. $created_by. $nr_person. $process. $ingredient);
 		
     $mysqli->close();
 	
