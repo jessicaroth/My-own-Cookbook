@@ -1,12 +1,12 @@
 <?php
 
 //Hier noch schauen, wie das mit AJAX funktioniert
-$category;
-$email;
+$category = $_POST['category'];
+$email = $_POST['email'];
 
+echo $category . '<br/>'. $email. '<br/>';
+//echo "<b>Hello world!</b>";
 get_recipes($category, $email);
-//hier kommt ein Array raus
-//das dann evtl aufbereiten und zurück -> Ausgabe
 
   
   function connect_mysql_oo() {
@@ -22,7 +22,7 @@ get_recipes($category, $email);
   function get_recipes($category, $email) {
     $mysqli = connect_mysql_oo();
 
-    if (!($stmt = $mysqli->prepare("SELECT * FROM user WHERE category = ? AND email = ?"))) {
+    if (!($stmt = $mysqli->prepare("SELECT r_id, title, category FROM recipe WHERE category = ? AND created_by = ?"))) {
       echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
     }
     if (!$stmt->bind_param("ss", $category, $email)) {
@@ -34,16 +34,18 @@ get_recipes($category, $email);
     }
 	
 	//hier noch mal schauen, was dann im arr landet
-	$stmt->bind_result(*);
-    $stmt->fetch();
-	$arr = Array();
-    while ($row = $stmt->fetch_array($t)) {
-      array_push($arr, $row);
-    }
+	$stmt->bind_result($r_id, $title, $category) or die("Unable to bind result: " . $stmt->error);;
+    
 	
-	return $arr;
+	//$arr = Array();
+	while($stmt->fetch()){
+		//array_push($arr, [$title, $category]);
+	echo '<div onclick=test("'.$r_id.'")>'. $title . ', ' . $category.'</div>';
+	}
+	//echo "<div> This is my div, <span>There are many like it, <b>but this one</b> is</span> mine</div>";
+
+	//return $arr;
 	//hier bin ich mir noch nicht so sicher, ob das klappt -> Recherche
-	
     $mysqli->close();
   }  
   
