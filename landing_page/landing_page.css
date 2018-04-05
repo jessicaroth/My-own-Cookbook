@@ -21,6 +21,10 @@ body {
     background-image: url("../images/drinks/pexels-photo-374885.jpeg");
 }
 
+.appetizers {
+    background-image: url("../images/appetizers/appetizer-avocado-bread-566566.jpg");
+}
+
 article {
     text-align: left;
     background-color: white;
