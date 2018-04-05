@@ -29,6 +29,10 @@ body {
     background-image: url("../images/main courses/bake-baked-basil-236798.jpg");
 }
 
+.dessert {
+    background-image: url("../images/desserts/pexels-photo-239575.jpeg");
+}
+
 article {
     text-align: left;
     background-color: white;
