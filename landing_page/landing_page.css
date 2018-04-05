@@ -25,6 +25,10 @@ body {
     background-image: url("../images/appetizers/appetizer-avocado-bread-566566.jpg");
 }
 
+.main_courses {
+    background-image: url("../images/main courses/bake-baked-basil-236798.jpg");
+}
+
 article {
     text-align: left;
     background-color: white;
