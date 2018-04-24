@@ -33,6 +33,14 @@ $mysqli = new mysqli("localhost", "root", "");
     return $mysqli;
 }
 
+function connect_mysql_oo() {
+    $mysqli = new mysqli("localhost", "root", "", "my_own_cookbook");
+    $mysqli->set_charset("utf8");
+    if ($mysqli->connect_errno) {
+      echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    return $mysqli;
+}
 
 function create_db(){
 	$mysqli = connect_mysql_db();
@@ -82,7 +90,6 @@ function check_email($email) {
     $mysqli->close();
   }
 
-  
 function register_into_db($first_name, $last_name, $email, $password) {
     $mysqli = connect_mysql_oo();
 	
