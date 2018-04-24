@@ -86,7 +86,7 @@ if (isset($arr)) {
 function create_table(){
 	
 $mysqli = connect_mysql_oo();
-  $sqltable_ingredient = "CREATE TABLE IF NOT EXISTS recipe ( 
+  $sqltable_recipe = "CREATE TABLE IF NOT EXISTS recipe ( 
   r_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
   title VARCHAR(255) NOT NULL ,
   category VARCHAR(255) NOT NULL ,
@@ -95,14 +95,20 @@ $mysqli = connect_mysql_oo();
   nr_person VARCHAR(255) NOT NULL ,
   process VARCHAR(8191) NOT NULL
   )";
+$mysqli->query($sqltable_recipe);
+
+  $sqltable_ingredient = "CREATE TABLE IF NOT EXISTS ingredient ( 
+  r_id INT UNSIGNED NOT NULL, 
+  ingredient VARCHAR(255) NOT NULL,
+  PRIMARY KEY (r_id,ingredient)
+  )";
 $mysqli->query($sqltable_ingredient);
 
   $sqltable_access = "CREATE TABLE IF NOT EXISTS access ( 
   r_id INT UNSIGNED NOT NULL, 
   email VARCHAR(255) NOT NULL,
-  PRIMARY KEY ('r_id','email'))
+  PRIMARY KEY (r_id,email)
   )";
-  
   //hier noch mal nach dem key schauen
 $mysqli->query($sqltable_access);
 

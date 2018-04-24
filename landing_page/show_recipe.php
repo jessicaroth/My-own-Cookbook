@@ -3,9 +3,8 @@ session_start();
 
 $r_id = $_POST['r_id'];
 
-echo 'r_id: '. $r_id . '</br>';
+//echo 'r_id: '. $r_id . '</br>';
 show_recipe($r_id);
-//echo "Hello world!";
 
 
 function connect_mysql_oo() {
@@ -38,7 +37,7 @@ function show_recipe($r_id) {
     $stmt->fetch();
 
 //TODO: schönes Design und schöner hinschreiben
-	echo '<div>'.$title. '</br>' .$category.'</br>'. $created_by. '</br>'. $nr_person.'</br>'. $process.'</div>';
+	echo '<div><h2>'.$title. '</h2><table><tr><td>Kategorie:</td><td>' .$category.'</td></tr><tr><td>Ersteller:</td><td>'. $created_by. '</td></tr><tr><td>Für:</td><td>'. $nr_person.' Person(en)</td></tr></table>'. $process.'</table></div>';
 
     $mysqli->close();
 

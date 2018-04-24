@@ -41,7 +41,7 @@ get_recipes($category, $email);
 	//$arr = Array();
 	while($stmt->fetch()){
 		//array_push($arr, [$title, $category]);
-	print '<div onclick = showRecipe("'.$r_id.'");>'. $title .'</div>';
+	print '<div class="recipe_name" onclick = showRecipe("'.$r_id.'");>'. $title .'</div></br>';
 	}
 
 

@@ -1,8 +1,7 @@
 <?php
 
-
 if (isset($_GET)) {
-	$first_name = $_POST["first_name"];
+$first_name = $_POST["first_name"];
 $last_name = $_POST["last_name"];
 $email = $_POST["email"];
 $password = $_POST["password"];
@@ -24,7 +23,6 @@ $password = $_POST["password"];
  //TODO
  }
  	
-
 }
 
 function connect_mysql_db(){
@@ -35,15 +33,6 @@ $mysqli = new mysqli("localhost", "root", "");
     return $mysqli;
 }
 
-
-function connect_mysql_oo() {
-    $mysqli = new mysqli("localhost", "root", "", "my_own_cookbook");
-    $mysqli->set_charset("utf8");
-    if ($mysqli->connect_errno) {
-      echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
-    }
-    return $mysqli;
-  }
 
 function create_db(){
 	$mysqli = connect_mysql_db();
