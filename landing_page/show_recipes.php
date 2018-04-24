@@ -1,10 +1,11 @@
 <?php
+session_start();
 
 //Hier noch schauen, wie das mit AJAX funktioniert
 $category = $_POST['category'];
-$email = $_POST['email'];
+$email = $_SESSION["email"];
 
-echo $category . '<br/>'. $email. '<br/>';
+//echo $category . '<br/>'. $email. '<br/>';
 //echo "<b>Hello world!</b>";
 get_recipes($category, $email);
 
@@ -40,9 +41,9 @@ get_recipes($category, $email);
 	//$arr = Array();
 	while($stmt->fetch()){
 		//array_push($arr, [$title, $category]);
-	echo '<div onclick=test("'.$r_id.'")>'. $title . ', ' . $category.'</div>';
+	print '<div onclick = showRecipe("'.$r_id.'");>'. $title .'</div>';
 	}
-	//echo "<div> This is my div, <span>There are many like it, <b>but this one</b> is</span> mine</div>";
+
 
 	//return $arr;
 	//hier bin ich mir noch nicht so sicher, ob das klappt -> Recherche

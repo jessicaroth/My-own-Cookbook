@@ -1,7 +1,8 @@
 <?php
-  /***  MYSQL Connection ***/
+session_start();
 
-  $email = 'to@web.de';
+
+  $email = $_SESSION["email"];
   $arr = $_POST;	
   $arr_ingr = Array();
 if (isset($arr)) {

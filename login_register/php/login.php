@@ -1,15 +1,19 @@
 <?php
+session_start();
 
 if (isset($_GET)) {
 	$email = $_POST["email"];
     $entered_password = $_POST["password"];
-	
+    $_SESSION["email"] = $email;
+
 	echo $email ."<br/>";
     $realpw = query_prepared_statement($email);
 	echo "Passwort: ".$realpw."<br/>";
 	$entered_password = $_POST["password"];
 	echo "Entered Passwort:" . $entered_password ."<br/>";
 	check_pw($entered_password, $realpw);
+
+
 }
 
   function connect_mysql_oo() {
@@ -51,9 +55,9 @@ if (isset($_GET)) {
 
 	function check_pw($entered_password, $realpw){
 	  if($realpw == $entered_password){
-		  echo "Sucessfully Logged in";
-		  //hier natürlich die richtige Seite einfügen
-		  header('Location:./../../landing_page/landing_page_after_Login.html'); 
+
+		  header('Location:./../../landing_page/landing_page_after_Login.html');
+
 	  }
 	  else{
 		  echo "You might want to try this again";
