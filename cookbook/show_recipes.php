@@ -35,7 +35,7 @@ get_recipes($category, $email);
     }
 	
 	//hier noch mal schauen, was dann im arr landet
-	$stmt->bind_result($r_id, $title, $category) or die("Unable to bind result: " . $stmt->error);;
+	$stmt->bind_result($r_id, $title, $category) or die("Unable to bind result: " . $stmt->error);
     
 	
 	//$arr = Array();

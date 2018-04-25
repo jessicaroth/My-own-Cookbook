@@ -149,6 +149,11 @@ header {
     border-radius: 20px;
     font-size: 1.0em;
 	background-color: #04B45F;
-	height: 30px;
-	padding: 0em 2em;
+	height: 20px;
+	padding: 0.9em 2em;
+}
+
+.whole_recipe{
+	position:relative;
+	left:5%;
 }

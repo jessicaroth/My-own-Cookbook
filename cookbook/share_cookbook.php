@@ -1,15 +1,18 @@
 <?php
+session_start();
   /***  MYSQL Connection ***/
   
 
 if (isset($_GET)) {
 	$email = $_POST["email"];
-	$email_submitter; //wie komme ich da ran?
+	$email_submitter = $_SESSION["email"]; 
 	
-	check_email($email);
-	$recipes = get_r_id($email_submitter);
+	$count = check_email($email);
+	if ($count == 1){
+	$recipes = get_r_id($email_submitter, $email);
 	//hier noch eine foreach-Schleife
-	grant_access($r_id, $email);
+	
+	}
 }
   
 
@@ -48,8 +51,7 @@ function check_email($email) {
   }
 	
 
-  
-function get_r_id($email_submitter) {
+function get_r_id($email_submitter, $email) {
     $mysqli = connect_mysql_oo();
 
     if (!($stmt = $mysqli->prepare("SELECT r_id FROM user WHERE email = ?"))) {
@@ -64,13 +66,12 @@ function get_r_id($email_submitter) {
     }
 	
 	$stmt->bind_result($r_id);
-    $stmt->fetch();
-	$arr = Array();
-    while ($row = $stmt->fetch_array($t)) {
-      array_push($arr, $row);
-    }
 	
-	return $arr;
+	while($stmt->fetch()){
+		//array_push($arr, [$title, $category]);
+	    grant_access($r_id, $email);
+	}
+	
 	//hier bin ich mir noch nicht so sicher, ob das klappt -> Recherche
 	
     $mysqli->close();

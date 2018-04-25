@@ -21,7 +21,7 @@ function show_recipe($r_id) {
 
 	//"SELECT title FROM recipe r, ingredient i WHERE r_id = ? JOIN r.r_id = i.r_id"
 
-    if (!($stmt = $mysqli->prepare("SELECT title, category, created_by, nr_person, process FROM recipe WHERE r_id = ? "))) {
+    if (!($stmt = $mysqli->prepare("SELECT r.title, r.category, r.created_by, r.nr_person, r.process, i.ingredient FROM recipe r NATURAL JOIN ingredient i WHERE r.r_id = ? "))) {
       echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
     }
     if (!$stmt->bind_param("i", $r_id)) {
@@ -33,11 +33,21 @@ function show_recipe($r_id) {
     }
 
 	//header('Location:);
-	$stmt->bind_result($title, $category, $created_by, $nr_person, $process);
+	$stmt->bind_result($title, $category, $created_by, $nr_person, $process, $ingredient)or die("Unable to bind result: " . $stmt->error);
     $stmt->fetch();
+	
+	echo '<div><h2>'.$title. '</h2><div class="whole_recipe"><table><tr><td><b>Kategorie:</b></td><td>' .$category.'</td></tr><tr><td><b>Ersteller:</b></td><td>'. $created_by. '</td></tr><tr><td><b>Für:</b></td><td>'. $nr_person.' Person(en)</td></tr>';
+	
+	echo '<tr><td><b>Zutaten:</b></td><td>'.$ingredient.'</td></tr>';
+	
+	$arr = Array();
+	while($stmt->fetch()){
+	echo '<tr><td></td><td>'.$ingredient.'</td></tr>';
+	}
+	
+	echo '</table><b>Ablauf:</b></br>'.$process.'</div></div>';
 
 //TODO: schönes Design und schöner hinschreiben
-	echo '<div><h2>'.$title. '</h2><table><tr><td>Kategorie:</td><td>' .$category.'</td></tr><tr><td>Ersteller:</td><td>'. $created_by. '</td></tr><tr><td>Für:</td><td>'. $nr_person.' Person(en)</td></tr></table>'. $process.'</table></div>';
 
     $mysqli->close();
 
