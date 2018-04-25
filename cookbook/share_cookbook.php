@@ -1,17 +1,24 @@
 <?php
 session_start();
-  /***  MYSQL Connection ***/
-  
 
-if (isset($_GET)) {
+if (isset($_POST)) {
 	$email = $_POST["email"];
 	$email_submitter = $_SESSION["email"]; 
+	$category = $_POST["category"];
+	
+	echo $category;
+	
+	if($category == "whole cookbook"){
+	    $category = '%';
+	}
+	echo $category;
 	
 	$count = check_email($email);
 	if ($count == 1){
-	$recipes = get_r_id($email_submitter, $email);
-	//hier noch eine foreach-Schleife
-	
+	$recipes = get_r_id($category, $email_submitter, $email);
+	}
+	else{
+	echo "Email doesnt exist";
 	}
 }
   
@@ -51,13 +58,13 @@ function check_email($email) {
   }
 	
 
-function get_r_id($email_submitter, $email) {
+function get_r_id($category, $email_submitter, $email) {
     $mysqli = connect_mysql_oo();
 
-    if (!($stmt = $mysqli->prepare("SELECT r_id FROM user WHERE email = ?"))) {
+    if (!($stmt = $mysqli->prepare("SELECT r_id FROM recipe WHERE category LIKE ? AND created_by = ?"))) {
       echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
     }
-    if (!$stmt->bind_param("s", $email_submitter)) {
+    if (!$stmt->bind_param("ss", $category, $email_submitter)) {
       echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
     }
 
@@ -80,7 +87,6 @@ function get_r_id($email_submitter, $email) {
 
 function grant_access($r_id, $email) {
     $mysqli = connect_mysql_oo();
-	
 	
     if (!($stmt = $mysqli->prepare("INSERT INTO access (r_id, email) VALUES (?, ?)"))) {
       echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
