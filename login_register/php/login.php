@@ -12,8 +12,6 @@ if (isset($_GET)) {
 	$entered_password = $_POST["password"];
 	echo "Entered Passwort:" . $entered_password ."<br/>";
 	check_pw($entered_password, $realpw);
-
-
 }
 
   function connect_mysql_oo() {
@@ -54,10 +52,10 @@ if (isset($_GET)) {
   }
 
 	function check_pw($entered_password, $realpw){
-	  if($realpw == $entered_password){
-
+		
+	$entered_password = crypt($entered_password, '$5$rounds=5000$sdhfkjicejmfcmoewlkllkldkmfxokewo$');
+	  if(hash_equals($realpw, $entered_password)){
 		  header('Location:./../../landing_page/landing_page_after_Login.html');
-
 	  }
 	  else{
 		  echo "You might want to try this again";

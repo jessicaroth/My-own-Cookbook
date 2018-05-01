@@ -1,29 +1,25 @@
 <?php
+session_start();
 
-if (isset($_GET)) {
+
 $first_name = $_POST["first_name"];
 $last_name = $_POST["last_name"];
 $email = $_POST["email"];
 $password = $_POST["password"];
  
- //echo "First name: " .$first_name ."<br/>";
- //echo "Last name: " .$last_name ."<br/>";
- //echo "Email: " .$email ."<br/>";
- //echo "PW: " .$password;
- 
  create_db();
  create_table();
  $count = check_email($email);
  if($count == 0){
- register_into_db($first_name, $last_name, $email, $password);
- 
+	 $password = crypt($password, '$5$rounds=5000$sdhfkjicejmfcmoewlkllkldkmfxokewo$');
+	 echo $password;
+ register_into_db($first_name, $last_name, $email, $password); 
  }
  else{
  echo "email already taken";
  //TODO
  }
  	
-}
 
 function connect_mysql_db(){
 $mysqli = new mysqli("localhost", "root", "");
@@ -108,11 +104,11 @@ function register_into_db($first_name, $last_name, $email, $password) {
     }
 	
 	echo "Sucessfully Registered";
+	$_SESSION["email"] = $email;
 	//echo "Done PW" .$realpw ."<br/>";
-	header('Location:./../../landing_page/landing_page_after_Login.html'); 
+	//header('Location:./../../landing_page/landing_page_after_Login.html'); 
 		
     $mysqli->close();
-	
   }
   
 ?>
