@@ -8,15 +8,13 @@ function showRecipes(category) {
     });		
 }
 
-//function test(vari){
-//	document.getElementById("snacks").innerHTML = vari;
-//}
+
 
 function showRecipe(r_id){
     $.post('show_recipe.php', {r_id: r_id}).done(function(res){
         $("#oneRecipe").html(res);
         $("#recipes").html("");
-		$("#intro").html("");
+		//$("#intro").html("");
     });
 }
 

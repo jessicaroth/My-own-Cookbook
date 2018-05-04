@@ -6,20 +6,23 @@ if (isset($_POST)) {
 	$email_submitter = $_SESSION["email"]; 
 	$category = $_POST["category"];
 	
-	echo $category;
+	//echo $category;
 	
 	if($category == "whole cookbook"){
 	    $category = '%';
 	}
-	echo $category;
+	//echo $category;
 	
 	$count = check_email($email);
 	if ($count == 1){
 	$recipes = get_r_id($category, $email_submitter, $email);
 	}
 	else{
-	echo "Email doesnt exist";
+	//echo "Email doesnt exist";
 	}
+	
+	header('Location: .\share_my_cookbook.html');
+	//echo "<script type='text/javascript'>alert('Test');</script>";
 }
   
 
@@ -79,8 +82,6 @@ function get_r_id($category, $email_submitter, $email) {
 	    grant_access($r_id, $email);
 	}
 	
-	//hier bin ich mir noch nicht so sicher, ob das klappt -> Recherche
-	
     $mysqli->close();
   }  
   
@@ -99,7 +100,7 @@ function grant_access($r_id, $email) {
       echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
     }
 	
-	echo "Sucessfully granted access";
+	//echo "Sucessfully granted access";
 		
     $mysqli->close();
 	
