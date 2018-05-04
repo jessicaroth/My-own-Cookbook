@@ -15,7 +15,7 @@ if (trim($newpw) != ''){
 echo "not empty";
 check_pw ($email,$oldpw, $newpw);
 }
-
+header('Location:.\my_profil.html'); 
 
 
 function connect_mysql_oo() {
@@ -76,8 +76,7 @@ function edit_profile($first_name, $last_name, $email) {
 		
     $mysqli->close();
   }
-  
-  
+   
 function edit_pw($email, $newpw) {
     $mysqli = connect_mysql_oo();
 	
