@@ -5,13 +5,22 @@ if (isset($_GET)) {
 	$email = $_POST["email"];
     $entered_password = $_POST["password"];
     $_SESSION["email"] = $email;
-
+	create_db();
+	
 	echo $email ."<br/>";
     $realpw = query_prepared_statement($email);
 	echo "Passwort: ".$realpw."<br/>";
 	$entered_password = $_POST["password"];
 	echo "Entered Passwort:" . $entered_password ."<br/>";
 	check_pw($entered_password, $realpw);
+}
+
+function connect_mysql_db(){
+$mysqli = new mysqli("localhost", "root", "");
+    if ($mysqli->connect_errno) {
+      echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+    }
+    return $mysqli;
 }
 
   function connect_mysql_oo() {
@@ -22,6 +31,13 @@ if (isset($_GET)) {
     }
     return $mysqli;
   }
+  
+  function create_db(){
+	$mysqli = connect_mysql_db();
+$sql = "CREATE DATABASE IF NOT EXISTS my_own_cookbook";
+$mysqli->query($sql);
+$mysqli->close();
+}
   
   function query_prepared_statement($email) {
     $mysqli = connect_mysql_oo();
@@ -58,6 +74,7 @@ if (isset($_GET)) {
 		  header('Location:./../../landing_page/landing_page_after_Login.html');
 	  }
 	  else{
+		  header('Location:./../../login_register/login_register.html');
 		  echo "You might want to try this again";
 	  }
 	}

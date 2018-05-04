@@ -17,6 +17,7 @@ $password = $_POST["password"];
  }
  else{
  echo "email already taken";
+ header('Location:./../../login_register/login_register.html');
  //TODO
  }
  	
@@ -66,7 +67,6 @@ function check_email($email) {
 	
 	//echo "entered qps" . $email ."<br/>";
 
-
     if (!($stmt = $mysqli->prepare("SELECT COUNT(email) FROM user WHERE email = ?"))) {
       echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
     }
@@ -80,7 +80,6 @@ function check_email($email) {
 	
 	$stmt->bind_result($count);
     $stmt->fetch();
-	//echo "Done PW" .$realpw ."<br/>";
 	return $count;
 		
     $mysqli->close();
@@ -106,7 +105,7 @@ function register_into_db($first_name, $last_name, $email, $password) {
 	echo "Sucessfully Registered";
 	$_SESSION["email"] = $email;
 	//echo "Done PW" .$realpw ."<br/>";
-	//header('Location:./../../landing_page/landing_page_after_Login.html'); 
+	header('Location:./../../landing_page/landing_page_after_Login.html'); 
 		
     $mysqli->close();
   }
