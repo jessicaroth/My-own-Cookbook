@@ -33,6 +33,14 @@ body {
     background-image: url("../images/desserts/pexels-photo-239575.jpeg");
 }
 
+.snacks {
+    background-image: url("../images/snacks/pexels-photo-209403.jpeg");
+}
+
+.miscellaneous {
+    background-image: url("../images/miscellaneous/beans-chopping-board-food-616358.jpg");
+}
+
 article {
     text-align: left;
     background-color: white;
