@@ -71,7 +71,8 @@ $mysqli->close();
 		
 	$entered_password = crypt($entered_password, '$5$rounds=5000$sdhfkjicejmfcmoewlkllkldkmfxokewo$');
 	  if(hash_equals($realpw, $entered_password)){
-		  header('Location:./../../landing_page/landing_page_after_Login.html');
+		  
+		  header('Location:./../../landing_page/landing_page_after_Login.php');
 	  }
 	  else{
 		  header('Location:./../../login_register/login_register.html');

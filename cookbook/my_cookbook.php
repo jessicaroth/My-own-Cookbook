@@ -1,3 +1,8 @@
+<?php
+session_start();
+	if(isset($_SESSION["email"])) {
+	?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,12 +28,12 @@
     <h1 align="center">My Cookbook</h1>
     <p>This cookbook is seperated in the following chapters: <br>
         <b><ul>
-    <li><a href="drinks.html">Drinks</a></li>
-    <li><a href="appetizers.html">Appetizers</a></li>
-    <li><a href="main_courses.html">Main Courses</a></li>
-    <li><a href="dessert.html">Dessert</a></li>
-    <li> <a href="snacks.html">Snacks</a></li>
-    <li> <a href="miscellaneous.html">Miscellanous</a></li>
+    <li><a href="drinks.php">Drinks</a></li>
+    <li><a href="appetizers.php">Appetizers</a></li>
+    <li><a href="main_courses.php">Main Courses</a></li>
+    <li><a href="dessert.php">Dessert</a></li>
+    <li> <a href="snacks.php">Snacks</a></li>
+    <li> <a href="miscellaneous.php">Miscellanous</a></li>
         </ul></b>
         <!--
         Die Rezepte können unter diesen Kategorien erstellt und mit Freunden geteilt werden. Wenn du dein ganzes
@@ -37,7 +42,7 @@
         Recipes can be created under these categories and shared with friends. If you want to share your whole
         recipe book with your friends, then click on the following button. <br>
         <br>
-        <button class="button" style="margin-left: 70%"><a href="share_my_cookbook.html" style="text-decoration: none"  >
+        <button class="button" style="margin-left: 70%"><a href="share_my_cookbook.php" style="text-decoration: none"  >
             <div class="pattern">
                 <div class="target inner bg1"></div>
             </div>
@@ -48,27 +53,27 @@
         <!--
         Deine gesamten Rezepte kannst du <a class="link" href="#"> hier</a> anschauen!
         -->
-        You can find all your recipes <a class="link" href="#"> here</a> .
+        <!--You can find all your recipes <a class="link" href="#"> here</a> .-->
     </p>
 </article>
 
 <div id="sidebar">
 
     <ul class="liste">
-        <li class="listenelement"><a class="listenlink" href="../user_profil/my_profil.html">My Profile</a></li>
-        <li class="listenelement"><a class="listenlink" href="../cookbook/my_cookbook.html">My Cookbook</a></li>
+        <li class="listenelement"><a class="listenlink" href="../user_profil/my_profil.php">My Profile</a></li>
+        <li class="listenelement"><a class="listenlink" href="../cookbook/my_cookbook.php">My Cookbook</a></li>
         <ul>
-            <li class="listenelement"><a class="listenlink2" href="../cookbook/drinks.html">Drinks</a></li>
-            <li class="listenelement"><a class="listenlink2" href="../cookbook/appetizers.html">Appetizers</a></li>
-            <li class="listenelement"><a class="listenlink2" href="../cookbook/main_courses.html">Main Courses</a></li>
-            <li class="listenelement"><a class="listenlink2" href="../cookbook/dessert.html">Dessert</a></li>
-            <li class="listenelement"><a class="listenlink2" href="../cookbook/snacks.html">Snacks</a></li>
-            <li class="listenelement"><a class="listenlink2" href="../cookbook/miscellaneous.html">Miscellaneous</a></li>
+            <li class="listenelement"><a class="listenlink2" href="../cookbook/drinks.php">Drinks</a></li>
+            <li class="listenelement"><a class="listenlink2" href="../cookbook/appetizers.php">Appetizers</a></li>
+            <li class="listenelement"><a class="listenlink2" href="../cookbook/main_courses.php">Main Courses</a></li>
+            <li class="listenelement"><a class="listenlink2" href="../cookbook/dessert.php">Dessert</a></li>
+            <li class="listenelement"><a class="listenlink2" href="../cookbook/snacks.php">Snacks</a></li>
+            <li class="listenelement"><a class="listenlink2" href="../cookbook/miscellaneous.php">Miscellaneous</a></li>
         </ul>
         <li class="listenelement">
-            <a class="listenlink" href="../cookbook/share_my_cookbook.html">Share my cookbook</a>
+            <a class="listenlink" href="../cookbook/share_my_cookbook.php">Share my cookbook</a>
         </li>
-        <li class="listenelement"><a class="listenlink" href="landing_page.html">Logout</a></li>
+        <li class="listenelement"><a class="listenlink" href="./../landing_page/logout.php">Logout</a></li>
     </ul>
 
     <div id="sidebar-btn">
@@ -81,3 +86,9 @@
 
 </body>
 </html>
+
+<?php
+}else 
+header('Location:./../landing_page/landing_page.html');
+
+?>

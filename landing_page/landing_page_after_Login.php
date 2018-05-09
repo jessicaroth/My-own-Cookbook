@@ -1,3 +1,8 @@
+<?php
+session_start();
+	if(isset($_SESSION["email"])) {
+	?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +18,7 @@
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="slidebar.js"></script>
 </head>
-<body class="landing_page_login">
+<body class="landing_page_login" onload="">
 <header>
      <button class="button"><a href="landing_page.html" style="text-decoration: none">
         <div class="pattern">
@@ -42,20 +47,20 @@
 <div id="sidebar">
 
     <ul class="liste">
-        <li class="listenelement"><a class="listenlink" href="../user_profil/my_profil.html">My Profile</a></li>
-        <li class="listenelement"><a class="listenlink" href="../cookbook/my_cookbook.html">My Cookbook</a></li>
+        <li class="listenelement"><a class="listenlink" href="../user_profil/my_profil.php">My Profile</a></li>
+        <li class="listenelement"><a class="listenlink" href="../cookbook/my_cookbook.php">My Cookbook</a></li>
             <ul>
-                <li class="listenelement"><a class="listenlink2" href="../cookbook/drinks.html">Drinks</a></li>
-				<li class="listenelement"><a class="listenlink2" href="../cookbook/appetizers.html">Appetizers</a></li>
-				<li class="listenelement"><a class="listenlink2" href="../cookbook/main_courses.html">Main Courses</a></li>
-				<li class="listenelement"><a class="listenlink2" href="../cookbook/dessert.html">Dessert</a></li>
-				<li class="listenelement"><a class="listenlink2" href="../cookbook/snacks.html">Snacks</a></li>
-				<li class="listenelement"><a class="listenlink2" href="../cookbook/miscellaneous.html">Miscellaneous</a></li>
+                <li class="listenelement"><a class="listenlink2" href="../cookbook/drinks.php">Drinks</a></li>
+				<li class="listenelement"><a class="listenlink2" href="../cookbook/appetizers.php">Appetizers.html</a></li>
+				<li class="listenelement"><a class="listenlink2" href="../cookbook/main_courses.php">Main Courses</a></li>
+				<li class="listenelement"><a class="listenlink2" href="../cookbook/dessert.php">Dessert</a></li>
+				<li class="listenelement"><a class="listenlink2" href="../cookbook/snacks.php">Snacks</a></li>
+				<li class="listenelement"><a class="listenlink2" href="../cookbook/miscellaneous.php">Miscellaneous</a></li>
             </ul>
         <li class="listenelement">
-            <a class="listenlink" href="../cookbook/share_my_cookbook.html">Share my cookbook</a>
+            <a class="listenlink" href="../cookbook/share_my_cookbook.php">Share my cookbook</a>
         </li>
-        <li class="listenelement"><a class="listenlink" href="landing_page.html">Logout</a></li>
+        <li class="listenelement"><a class="listenlink" href="logout.php">Logout</a></li>
     </ul>
 
     <div id="sidebar-btn">
@@ -68,3 +73,10 @@
 
 </body>
 </html>
+
+
+<?php
+}else 
+header('Location:./../landing_page/landing_page.html');
+
+?>

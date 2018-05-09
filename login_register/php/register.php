@@ -17,7 +17,7 @@ $password = $_POST["password"];
  }
  else{
  echo "email already taken";
- header('Location:./../../login_register/login_register.html');
+ header('Location:./../../login_register/login_register.php');
  //TODO
  }
  	
@@ -105,7 +105,7 @@ function register_into_db($first_name, $last_name, $email, $password) {
 	echo "Sucessfully Registered";
 	$_SESSION["email"] = $email;
 	//echo "Done PW" .$realpw ."<br/>";
-	header('Location:./../../landing_page/landing_page_after_Login.html'); 
+	header('Location:./../../landing_page/landing_page_after_Login.php'); 
 		
     $mysqli->close();
   }

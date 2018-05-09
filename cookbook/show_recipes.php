@@ -1,12 +1,11 @@
 <?php
 session_start();
 
-//Hier noch schauen, wie das mit AJAX funktioniert
+
 $category = $_POST['category'];
 $email = $_SESSION["email"];
 
-//echo $category . '<br/>'. $email. '<br/>';
-//echo "<b>Hello world!</b>";
+
 get_recipes($category, $email);
 
   
@@ -23,7 +22,7 @@ get_recipes($category, $email);
   function get_recipes($category, $email) {
     $mysqli = connect_mysql_oo();
 
-    if (!($stmt = $mysqli->prepare("SELECT r_id, title, category FROM recipe WHERE category = ? AND created_by = ?"))) {
+    if (!($stmt = $mysqli->prepare("SELECT r.r_id, r.title, r.category FROM recipe r INNER JOIN access a ON r.r_id = a.r_id WHERE r.category = ? AND a.email = ?"))) {
       echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
     }
     if (!$stmt->bind_param("ss", $category, $email)) {
@@ -49,5 +48,4 @@ get_recipes($category, $email);
 	//hier bin ich mir noch nicht so sicher, ob das klappt -> Recherche
     $mysqli->close();
   }  
-  
 ?>
