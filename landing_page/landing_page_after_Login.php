@@ -20,7 +20,7 @@ session_start();
 </head>
 <body class="landing_page_login" onload="">
 <header>
-     <button class="button"><a href="landing_page.html" style="text-decoration: none">
+     <button class="button"><a href="logout.php" style="text-decoration: none">
         <div class="pattern">
             <div class="target inner bg1"></div>
         </div>

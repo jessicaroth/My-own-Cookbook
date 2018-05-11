@@ -1,7 +1,12 @@
 <?php
 session_start();
-session_destroy();
-$_SESSION = array();
 
+//Session variables are invalidated
+$_SESSION = array();
+session_destroy();
+
+
+
+//Redirect to start page
 header('Location:./../landing_page/landing_page.html');
 ?>
