@@ -8,27 +8,29 @@
     <link href="../landing_page/slidebar.css" rel="stylesheet" type="text/css">
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="../landing_page/slidebar.js"></script>
-	<script src="show_recipes.js"></script>
+    <script src="show_recipes.js"></script>
 </head>
 <body class="appetizers" onload="showRecipes('appetizers')">
 <header>
-    <button class="button"><a href="../landing_page/landing_page.html" style="text-decoration: none">
-        <div class="pattern">
-            <div class="target inner bg1"></div>
-        </div>
-        <div class="text">Log Out</div></a>
-    </button>
+    <a href="../landing_page/landing_page.html" style="text-decoration: none">
+        <button class="button">
+            <div class="pattern">
+                <div class="target inner bg1"></div>
+            </div>
+            <div class="text">Log Out</div>
+        </button>
+    </a>
 </header>
 
 <article>
     <h1 align="center">Recipes for appetizers</h1>
     <p> Hier können die bisher erstellten Rezepte bestaunt werden.
-        
+
         <span><a href="../recepies/create_new_recipe.html"><button class="smallbutton addbutton">+</button></a></span>
     </p>
-	</br>
-	<p id ="recipes"></p>
-	<div id="oneRecipe"></div>
+    </br>
+    <p id="recipes"></p>
+    <div id="oneRecipe"></div>
 </article>
 
 <div id="sidebar">
@@ -42,7 +44,8 @@
             <li class="listenelement"><a class="listenlink2" href="../cookbook/main_courses.html">Main Courses</a></li>
             <li class="listenelement"><a class="listenlink2" href="../cookbook/dessert.html">Dessert</a></li>
             <li class="listenelement"><a class="listenlink2" href="../cookbook/snacks.html">Snacks</a></li>
-            <li class="listenelement"><a class="listenlink2" href="../cookbook/miscellaneous.html">Miscellaneous</a></li>
+            <li class="listenelement"><a class="listenlink2" href="../cookbook/miscellaneous.html">Miscellaneous</a>
+            </li>
         </ul>
         <li class="listenelement">
             <a class="listenlink" href="../cookbook/share_my_cookbook.html">Share my cookbook</a>
