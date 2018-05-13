@@ -16,7 +16,7 @@ session_start();
 </head>
 <body class="dessert" onload="showRecipes('dessert')">
 <header>
-    <button class="button"><a href="../landing_page/landing_page.html" style="text-decoration: none">
+    <button class="button"><a href="../landing_page/logout.php" style="text-decoration: none">
         <div class="pattern">
             <div class="target inner bg1"></div>
         </div>
@@ -28,7 +28,7 @@ session_start();
     <h1 align="center">Recipes for desserts</h1>
     <p> Hier können die bisher erstellten Rezepte bestaunt werden.
 	    
-        <span><a href="../recepies/create_new_recipe.html"><button class="smallbutton addbutton">+</button></a></span>
+        <span><a href="../recepies/create_new_recipe.php"><button class="smallbutton addbutton">+</button></a></span>
     </p>
 	</br>
 	<p id ="recipes"></p>

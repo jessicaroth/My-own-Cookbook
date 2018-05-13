@@ -16,7 +16,7 @@ session_start();
 </head>
 <body class="cookbook">
 <header>
-    <button class="button"><a href="../landing_page/landing_page.css" style="text-decoration: none">
+    <button class="button"><a href="../landing_page/logout.php" style="text-decoration: none">
         <div class="pattern">
             <div class="target inner bg1"></div>
         </div>

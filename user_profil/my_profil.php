@@ -17,7 +17,7 @@ session_start();
 </head>
 <body class="landing_page_login" onload="showProfile('false')">
 <header>
-    <button class="button"><a href="../landing_page/landing_page.html" style="text-decoration: none">
+    <button class="button"><a href="../landing_page/logout.php" style="text-decoration: none">
         <div class="pattern">
             <div class="target inner bg1"></div>
         </div>
@@ -26,10 +26,11 @@ session_start();
 </header>
 
 <article>
-    <h1 align="center">My profil</h1>
+    <h1 align="center">My profile</h1>
     <p id="profile">
     </p>
-	<span><a href="my_profil_edit.php"><button class="smallbutton addbutton">+</button></a></span>
+	<span><a href="my_profil_edit.php"><button class="smallbutton addbutton"><img src="pencil.png" class="pencil_img"></button></a></span>
+	</br>
 </article>
 
 <div id="sidebar">

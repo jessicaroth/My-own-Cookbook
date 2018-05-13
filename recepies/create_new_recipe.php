@@ -18,7 +18,7 @@ session_start();
 
 <body class="cookbook">
 <header>
-    <button class="button"><a href="../landing_page/landing_page.html" style="text-decoration: none">
+    <button class="button"><a href="../landing_page/logout.php" style="text-decoration: none">
         <div class="pattern">
             <div class="target inner bg1"></div>
         </div>
@@ -31,46 +31,49 @@ session_start();
     <h1 align="center">Adding a new recipe</h1>
     <p>
         <form action="create_a_new_recipe.php" method="post">
-
-    <p><label>
-        Name<span class="req">*</span>
-    </label>
-        <input name="name_recipe" type="text" size="50" maxlength="50" value="">
+		<table id="create_new_recipe">
+		<tr>
+    <p><td><label>
+        <b>Name<span class="req">*</span></b>
+    </label></td>
+        <td><input name="name_recipe" type="text" size="50" maxlength="50" value="" required></td>
     </p>
-    <p>
-    <label>
-        Category<span class="req">*</span>
+	</tr>
+	<tr><p>
+	<td><label>
+        <b>Category<span class="req">*</span></b>
     </label>
-    <select name="category" size="1">
+	</td><td>
+    <select name="category" size="1" required>
         <option>drinks</option>
         <option>appetizers</option>
         <option>main courses</option>
         <option>dessert</option>
         <option>snacks</option>
         <option>miscellaneous</option>
-    </select>
-    </p>
-    <p>
-    Für <input name="number_person" size="1" maxlength="3"> Person(en)
-    </p>
+    </select></td>
+    </p></tr>
+    <tr><p>
+    <td><b>For </b></td>
+	<td><input name="number_person" size="1" maxlength="3" required> Person(s)</td>
+    </p></tr>
 
     <!--Hier muss ich mir noch was überlegen, wie ich die Zutaten schön darstelle-->
-    <div name="ingredients" id="ingredients">
-        <label>
-            Ingredients<span class="req">*</span>
-        </label>
-        <!--<textarea cols="100" rows="20"></textarea> -->
-        <!--<input name="measure_0" size="3" maxlength="6">-->
-        <input name="ingredient_0" type="text" size="20" maxlength="30">
-        <br/>
-    </div>
+    <tr><div name="ingredients" id="ingredients">
+        <td><label>
+            <b>Ingredients<span class="req">*</span></b>
+        </label></td>
+        <td><input name="ingredient_0" type="text" size="20" maxlength="30" required>
+        </td>
+    </div></tr>
+	</table>
     <br/>
-    <input class="smallbutton" type="button" name="add_ingredient" value="Füge Zutat hinzu" onclick="addFields()">
+    <input class="smallbutton" type="button" name="add_ingredient" value="Add ingredient" onclick="addFields()">
 
     <p><label>
-        Ablauf<span class="req">*</span>
+        <b>Ablauf<span class="req">*</span></b>
     </label></p>
-    <textarea cols="100" rows="10" name="process"></textarea>
+    <textarea cols="90" rows="10" name="process" required></textarea>
 
     <br/><br/>
     <input class="smallbutton" type="submit" value="Saving">
