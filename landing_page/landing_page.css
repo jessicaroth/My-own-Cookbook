@@ -1,6 +1,6 @@
 /*Body describes scaling and styling of background + font*/
 body {
-    background-image: url("pexels-photo-461428.jpeg");
+    background: url("pexels-photo-461428.jpeg");
     background-size: 100% auto;
     z-index: 1;
     background-color: hsla(0,0%,100%,0.20);
@@ -14,37 +14,54 @@ body {
     display: block;
 }
 
-/*these 8 classes replace the background image with another one, depends on topic*/
+
+
+/*these 9 classes replace the background image with another one, depends on topic*/
+.landing_page{
+	background: url("pexels-photo-461428.jpeg");
+	background-size: 100% auto;
+}
+
 .landing_page_login {
-    background-image: url("pexels-photo-798282.jpeg");
+    background: url("pexels-photo-798282.jpeg");
+	background-size: 100% auto;
+	
 }
 
 .cookbook {
-    background-image: url("../cookbook/blur-blurred-book-46274.jpg");
+    background: url("../cookbook/blur-blurred-book-46274.jpg");
+	background-size: 100% auto;
 }
 
 .getränke {
-    background-image: url("../images/drinks/pexels-photo-374885.jpeg");
+    background: url("../images/drinks/pexels-photo-374885.jpeg");
+	background-size: 100% auto;
+	
 }
 
 .appetizers {
-    background-image: url("../images/appetizers/appetizer-avocado-bread-566566.jpg");
+    background: url("../images/appetizers/appetizer-avocado-bread-566566.jpg");
+	background-size: 100% auto;
 }
 
 .main_courses {
-    background-image: url("../images/main courses/bake-baked-basil-236798.jpg");
+    background: url("../images/main courses/bake-baked-basil-236798.jpg");
+	background-size: 100% auto;
 }
 
 .dessert {
-    background-image: url("../images/desserts/pexels-photo-239575.jpeg");
+    background: url("../images/desserts/pexels-photo-239575.jpeg");
+	background-size: 100% auto;
 }
 
 .snacks {
-    background-image: url("../images/snacks/pexels-photo-209403.jpeg");
+    background: url("../images/snacks/pexels-photo-209403.jpeg");
+	background-size: 100% auto;
 }
 
 .miscellaneous {
-    background-image: url("../images/miscellaneous/beans-chopping-board-food-616358.jpg");
+    background: url("../images/miscellaneous/beans-chopping-board-food-616358.jpg");
+	background-size: 100% auto;
 }
 
 /*Article describes white box with content at the middle of the page*/
