@@ -1,10 +1,11 @@
 /*Body describes scaling and styling of background + font*/
 body {
-    background: url("pexels-photo-461428.jpeg");
-    background-size: 100% auto;
-    z-index: 1;
-    background-color: hsla(0,0%,100%,0.20);
-    background-blend-mode: overlay;
+    /*background-color: hsla(0,0%,100%,0.20);*/
+    /*background-image: url("pexels-photo-461428.jpeg");*/
+    /*background-size: 100% auto;*/
+    /*z-index: 1;*/
+    /*background-blend-mode: overlay;
+    Doesn't work with firefox -> problems with background image showing on firefox*/
     font-family: 'Titillium Web', sans-serif;
     margin: 0;
     padding: 0;
