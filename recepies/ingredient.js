@@ -7,8 +7,8 @@ function addFields(){
         var input_ingredient = document.createElement("input");
         input_ingredient.type = "text";
         input_ingredient.name = "ingredient_" + id;
-		input_ingredient.size = "20";
-		input_ingredient.maxlength = "30";
+		input_ingredient.size = "50";
+		input_ingredient.maxlength = "50";
 		
 		//Create a new row for the table "create new recipe"
 		var table = document.getElementById("create_new_recipe");
