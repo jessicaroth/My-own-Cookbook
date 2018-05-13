@@ -46,7 +46,7 @@ session_start();
         <li class="listenelement"><a class="listenlink" href="../cookbook/my_cookbook.php">My Cookbook</a></li>
             <ul>
                 <li class="listenelement"><a class="listenlink2" href="../cookbook/drinks.php">Drinks</a></li>
-				<li class="listenelement"><a class="listenlink2" href="../cookbook/appetizers.php">Appetizers.html</a></li>
+				<li class="listenelement"><a class="listenlink2" href="../cookbook/appetizers.php">Appetizers</a></li>
 				<li class="listenelement"><a class="listenlink2" href="../cookbook/main_courses.php">Main Courses</a></li>
 				<li class="listenelement"><a class="listenlink2" href="../cookbook/dessert.php">Dessert</a></li>
 				<li class="listenelement"><a class="listenlink2" href="../cookbook/snacks.php">Snacks</a></li>
