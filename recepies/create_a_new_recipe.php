@@ -74,7 +74,7 @@
 	print "<h1>Keine Formulardaten übergeben!!<h1>";
   }
   
-  //header('Location:./../landing_page/landing_page_after_Login.php'); 
+  header('Location:./../landing_page/landing_page_after_Login.php'); 
   
   function connect_mysql_oo() {
     $mysqli = new mysqli("localhost", "root", "", "my_own_cookbook");
