@@ -34,7 +34,9 @@ show_recipe($r_id);
     $stmt->fetch();
 	
 	//Print for the recipe: title, category, creator, nr_person it is for 
-	echo '<div class="whole_recipe"><h2>'.$title. '</h2><div ><table><tr><td><b>Category:</b></td><td>' .$category.'</td></tr><tr><td><b>Creator:</b></td><td>'. $created_by. '</td></tr><tr><td><b>For:</b></td><td>'. $nr_person.' Person(s)</td></tr>';
+	echo '<div class="whole_recipe"><h2>'.$title. '</h2><div >';
+	echo '<img class="image_recipe" src="./../recepies/images_recipes/'.$r_id.'.png"alt="">';
+	echo '<table><tr><td><b>Category:</b></td><td>' .$category.'</td></tr><tr><td><b>Creator:</b></td><td>'. $created_by. '</td></tr><tr><td><b>For:</b></td><td>'. $nr_person.' Person(s)</td></tr>';
 	
 	//print first ingredient
 	echo '<tr><td><b>Zutaten:</b></td><td>'.$ingredient.'</td></tr>';

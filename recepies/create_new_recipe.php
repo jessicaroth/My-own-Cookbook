@@ -32,7 +32,7 @@ session_start();
 <article>
     <h1 align="center">Adding a new recipe</h1>
     <p>
-        <form action="create_a_new_recipe.php" method="post">
+        <form action="create_a_new_recipe.php" method="post" enctype="multipart/form-data">
 		<table id="create_new_recipe">
 		<tr>
 		<!--textfields for adding information about recipe-->
@@ -58,14 +58,14 @@ session_start();
     </select></td>
     </p></tr>
     <tr><p>
-    <td><b>For </b></td>
+    <td><b>For <span class="req">*</span></b></td>
 	<td><input name="number_person" size="1" maxlength="3" required> Person(s)</td>
     </p></tr>
     <tr><div name="ingredients" id="ingredients">
         <td><label>
             <b>Ingredients<span class="req">*</span></b>
         </label></td>
-        <td><input name="ingredient_0" type="text" size="20" maxlength="30" required>
+        <td><input name="ingredient_0" type="text" size="50" maxlength="50" required>
         </td>
     </div></tr>
 	</table>
@@ -74,11 +74,16 @@ session_start();
     <input class="smallbutton" type="button" name="add_ingredient" value="Add ingredient" onclick="addFields()">
 
     <p><label>
-        <b>Ablauf<span class="req">*</span></b>
+        <b>Process<span class="req">*</span></b>
     </label></p>
     <textarea cols="90" rows="10" name="process" required></textarea>
 
     <br/><br/>
+	<label><b>Upload an image (smaller than 1MB)</b></label>
+	<br/>
+	 <input type="file" name="upfile" accept="image/*">
+	
+	<br/><br/>
     <!--Submit button-->
     <input class="smallbutton" type="submit" value="Saving">
     </form>

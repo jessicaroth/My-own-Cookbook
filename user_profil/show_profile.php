@@ -35,10 +35,10 @@ function show_profil($email, $edit) {
 
 //TODO: schönes Design und schöner hinschreiben
     if ($edit == 'false'){
-		echo '<div><table><tr><td>First Name:</td><td>' .$first_name.'</td></tr><tr><td>Last Name:</td><td>'. $last_name. '</td></tr><tr><td>Email:</td><td>'. $email.'</td></tr></table></div>';
+		echo '<div><table><tr><td><b>First Name:</b></td><td>' .$first_name.'</td></tr><tr><td><b>Last Name:</b></td><td>'. $last_name. '</td></tr><tr><td><b>Email:</b></td><td>'. $email.'</td></tr></table></div>';
 	}
 	else{
-		echo '<form action="edit_profile.php" method="post"><div><table></tr><tr><td>Email:</td><td>'. $email.'</td></tr><tr><td>First Name:</td><td><input type="text" name ="first_name" required value="' .$first_name.'"/></td></tr><tr><td>Last Name:</td><td><input type="text" name="last_name" required value="'. $last_name. '"/></td><tr><td>Old Password:</td><td><input type="password" name = "oldpw" title="You only have to enter a password, if you want to change it"/></td></tr><tr><td>New Password:</td><td><input type="password" name = "newpw" title="You only have to enter a password, if you want to change it"/></td></tr></table></div><input class="submit_button_profile_edit" type="submit" value="Submit changes"></form>';
+		echo '<form action="edit_profile.php" method="post"><div><table></tr><tr><td><b>Email:</b></td><td>'. $email.'</td></tr><tr><td><b>First Name:</b></td><td><input type="text" name ="first_name" required value="' .$first_name.'"/></td></tr><tr><td><b>Last Name:</b></td><td><input type="text" name="last_name" required value="'. $last_name. '"/></td><tr><td><b>Old Password:</b></td><td><input type="password" name = "oldpw" title="You only have to enter a password, if you want to change it"/></td></tr><tr><td><b>New Password:</b></td><td><input type="password" name = "newpw" title="You only have to enter a password, if you want to change it"/></td></tr></table></div><input class="submit_button_profile_edit" type="submit" value="Submit changes"></form>';
 	}
 	
     $mysqli->close();

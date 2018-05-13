@@ -4,6 +4,9 @@
   $email = $_SESSION["email"];
   $arr = $_POST;	
   $arr_ingr = Array();
+
+  $tmpfile = $_FILES['upfile']['tmp_name'];
+  $filename = $_FILES['upfile']['name'];
   
   //match the post data to the variables
   if (isset($arr)) {
@@ -28,6 +31,10 @@
         echo "Anzahl Personen: " .$value . "<br/>";
 		$nr_person = $value;
         break;	
+	case "upfile":
+		echo"upfile";
+
+		break;
 	default :
 		if($value != ""){
 			//Ingredient
@@ -62,6 +69,30 @@
 	  //Store the creator and the recipe_id in the table "access", so the creator can access his created recipe
 	  grant_access($r_id, $email);
 	  echo "Rezept gespeichert";
+	  
+	  //save uploaded picture
+	  $filename = $r_id . ".png";
+	  $uploadOk = 1;
+	  $check = getimagesize($_FILES['upfile']['tmp_name']);
+        if($check !== false) {
+          echo "File is an image - " . $check["mime"] . ".";
+          $uploadOk = 1;
+        } 
+		else {
+          echo "File is not an image.";
+          $uploadOk = 0;
+        }
+		if ($_FILES['upfile']['size'] > 1000000) {
+          echo "Sorry, your file is too large.";
+          $uploadOk = 0;
+        } 
+		
+		
+	  if($uploadOk == 1){
+	    move_uploaded_file($tmpfile, "images_recipes/$filename");
+	  }
+	  
+	  
 	}
 	else{
 	  echo "Rezept gibts schon";
