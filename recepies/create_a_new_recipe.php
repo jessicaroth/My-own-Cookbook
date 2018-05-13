@@ -40,8 +40,6 @@
 
 	print_r($arr_ingr);
 
-	//Create tables "recipe, ingredient, access" if not existant
-	create_table();
 	
 	//Check if there is a recipe with the same name and creator
 	$count = check_recipe_exists($title, $email);
@@ -85,43 +83,6 @@
     return $mysqli;
   }
  
-  function create_table(){
-	
-    $mysqli = connect_mysql_oo();
-	
-	//Recipes are stored in this table
-	//Post data that is stored: title, category, creator, nr_person for which the recipe is for
-	//r_id is the primary key and is used as a foreign key in "ingredient" and "access"
-    $sqltable_recipe = "CREATE TABLE IF NOT EXISTS recipe ( 
-      r_id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-      title VARCHAR(255) NOT NULL ,
-      category VARCHAR(255) NOT NULL ,
-      created_by VARCHAR(255) NOT NULL ,
-      created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP , 
-      nr_person VARCHAR(255) NOT NULL ,
-      process VARCHAR(8191) NOT NULL
-      )";
-    $mysqli->query($sqltable_recipe);
-
-	//The ingredients are stored in this seperate table with their recipe_id
-    $sqltable_ingredient = "CREATE TABLE IF NOT EXISTS ingredient ( 
-      r_id INT UNSIGNED NOT NULL, 
-      ingredient VARCHAR(255) NOT NULL,
-      PRIMARY KEY (r_id,ingredient)
-      )";  
-    $mysqli->query($sqltable_ingredient);
-
-	//Access stores which users may access which recipe
-    $sqltable_access = "CREATE TABLE IF NOT EXISTS access ( 
-      r_id INT UNSIGNED NOT NULL, 
-      email VARCHAR(255) NOT NULL,
-      PRIMARY KEY (r_id,email)
-      )"; 
-    $mysqli->query($sqltable_access);
-
-    $mysqli->close();
-
-}
 	
   function check_recipe_exists($title, $email) {
     $mysqli = connect_mysql_oo();
