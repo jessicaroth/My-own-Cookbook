@@ -1,94 +1,69 @@
 /*Definition of colors*/
 /*Basics for html and body like background*/
-/* line 20, ../sass/Login_Register.scss */
 *, *:before, *:after {
-  box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
-/* line 24, ../sass/Login_Register.scss */
 html {
-  overflow-y: scroll;
-}
+  overflow-y: scroll; }
 
-/* line 28, ../sass/Login_Register.scss */
 body {
   background: #c1bdba;
-  font-family: 'Titillium Web', sans-serif;
-}
+  font-family: 'Titillium Web', sans-serif; }
 
 /*Link styling*/
-/* line 34, ../sass/Login_Register.scss */
 a {
   text-decoration: none;
   color: #BDD684;
-  transition: .5s ease;
-}
-/* line 38, ../sass/Login_Register.scss */
-a:hover {
-  color: #b3d071;
-}
+  transition: .5s ease; }
+  a:hover {
+    color: #b3d071; }
 
-/* line 44, ../sass/Login_Register.scss */
 .form {
   background: rgba(16, 34, 43, 0.9);
   padding: 40px;
   max-width: 600px;
   margin: 40px auto;
   border-radius: 4px;
-  box-shadow: 0 4px 10px 4px rgba(16, 34, 43, 0.3);
-}
+  box-shadow: 0 4px 10px 4px rgba(16, 34, 43, 0.3); }
 
-/* line 53, ../sass/Login_Register.scss */
 .tab-group {
   list-style: none;
   padding: 0;
-  margin: 0 0 40px 0;
-}
-/* line 57, ../sass/Login_Register.scss */
-.tab-group:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-/* line 62, ../sass/Login_Register.scss */
-.tab-group li a {
-  display: block;
-  text-decoration: none;
-  padding: 15px;
-  background: rgba(226, 240, 214, 0.25);
-  color: #E2F0D6;
-  font-size: 20px;
-  float: left;
-  width: 50%;
-  text-align: center;
-  cursor: pointer;
-  transition: .5s ease;
-}
-/* line 74, ../sass/Login_Register.scss */
-.tab-group li a:hover {
-  background: #b3d071;
-  color: #ffffff;
-}
-/* line 79, ../sass/Login_Register.scss */
-.tab-group .active a {
-  background: #BDD684;
-  color: #ffffff;
-}
+  margin: 0 0 40px 0; }
+  .tab-group:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .tab-group li a {
+    display: block;
+    text-decoration: none;
+    padding: 15px;
+    background: rgba(226, 240, 214, 0.25);
+    color: #E2F0D6;
+    font-size: 20px;
+    float: left;
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+    transition: .5s ease; }
+    .tab-group li a:hover {
+      background: #b3d071;
+      color: #ffffff; }
+  .tab-group .active a {
+    background: #BDD684;
+    color: #ffffff; }
 
-/* line 85, ../sass/Login_Register.scss */
 .tab-content > div:last-child {
-  display: none;
-}
+  display: none; }
 
-/* line 90, ../sass/Login_Register.scss */
+/*Title styling*/
 h1 {
   text-align: center;
   color: #ffffff;
   font-weight: 300;
-  margin: 0 0 40px;
-}
+  margin: 0 0 40px; }
 
-/* line 97, ../sass/Login_Register.scss */
+/*Styling of textinput labels*/
 label {
   position: absolute;
   transform: translateY(6px);
@@ -97,31 +72,22 @@ label {
   transition: all 0.25s ease;
   -webkit-backface-visibility: hidden;
   pointer-events: none;
-  font-size: 22px;
-}
-/* line 106, ../sass/Login_Register.scss */
-label .req {
-  margin: 2px;
-  color: #BDD684;
-}
+  font-size: 22px; }
+  label .req {
+    margin: 2px;
+    color: #BDD684; }
 
-/* line 112, ../sass/Login_Register.scss */
 label.active {
   transform: translateY(50px);
   left: 2px;
-  font-size: 14px;
-}
-/* line 116, ../sass/Login_Register.scss */
-label.active .req {
-  opacity: 0;
-}
+  font-size: 14px; }
+  label.active .req {
+    opacity: 0; }
 
-/* line 121, ../sass/Login_Register.scss */
 label.highlight {
-  color: #ffffff;
-}
+  color: #ffffff; }
 
-/* line 125, ../sass/Login_Register.scss */
+/*Styling of textfield*/
 input, textarea {
   font-size: 22px;
   display: block;
@@ -133,44 +99,31 @@ input, textarea {
   border: 1px solid #E2F0D6;
   color: #ffffff;
   border-radius: 0;
-  transition: border-color .25s ease, box-shadow .25s ease;
-}
-/* line 137, ../sass/Login_Register.scss */
-input:focus, textarea:focus {
-  outline: 0;
-  border-color: #BDD684;
-}
+  transition: border-color .25s ease, box-shadow .25s ease; }
+  input:focus, textarea:focus {
+    outline: 0;
+    border-color: #BDD684; }
 
-/* line 143, ../sass/Login_Register.scss */
 textarea {
   border: 2px solid #E2F0D6;
-  resize: vertical;
-}
+  resize: vertical; }
 
-/* line 148, ../sass/Login_Register.scss */
 .field-wrap {
   position: relative;
-  margin-bottom: 40px;
-}
+  margin-bottom: 40px; }
 
-/* line 154, ../sass/Login_Register.scss */
 .top-row:after {
   content: "";
   display: table;
-  clear: both;
-}
-/* line 160, ../sass/Login_Register.scss */
+  clear: both; }
 .top-row > div {
   float: left;
   width: 48%;
-  margin-right: 4%;
-}
-/* line 164, ../sass/Login_Register.scss */
-.top-row > div:last-child {
-  margin: 0;
-}
+  margin-right: 4%; }
+  .top-row > div:last-child {
+    margin: 0; }
 
-/* line 170, ../sass/Login_Register.scss */
+/*Button styling*/
 .button {
   border: 0;
   outline: none;
@@ -182,22 +135,17 @@ textarea {
   letter-spacing: .1em;
   background: #BDD684;
   color: #ffffff;
-  transition: all 0.5s ease;
-  -webkit-appearance: none;
-}
-/* line 183, ../sass/Login_Register.scss */
-.button:hover, .button:focus {
-  background: #b3d071;
-}
+  transition: all .5s ease;
+  -webkit-appearance: none; }
+  .button:hover, .button:focus {
+    background: #b3d071; }
 
-/* line 188, ../sass/Login_Register.scss */
 .button-block {
   display: block;
-  width: 100%;
-}
+  width: 100%; }
 
-/* line 193, ../sass/Login_Register.scss */
 .forgot {
   margin-top: -20px;
-  text-align: right;
-}
+  text-align: right; }
+
+/*# sourceMappingURL=Login_Register.css.map */
