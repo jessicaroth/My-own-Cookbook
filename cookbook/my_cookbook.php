@@ -44,13 +44,7 @@ session_start();
         Recipes can be created under these categories and shared with friends. If you want to share your whole
         recipe book with your friends, then click on the following button. <br>
         <br>
-        <a href="share_my_cookbook.php" style="text-decoration: none"  >
-        <button class="button" style="margin-left: 70%">
-            <div class="pattern">
-                <div class="target inner bg1"></div>
-            </div>
-            <div class="text">Share with friends</div>
-        </button></a>
+        <input class="smallbutton" onClick="window.location.href='share_my_cookbook.php'" type="submit" style="margin-left: 85%" Value="Share with friends">
         <br>
         <br>
     </p>
