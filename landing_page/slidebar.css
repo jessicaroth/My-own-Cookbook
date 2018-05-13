@@ -1,3 +1,4 @@
+/*Generak Sidebar styling and position*/
 #sidebar{
     background:#10222B;
     width:240px;
@@ -19,6 +20,7 @@
     padding:0px;
 }
 
+/*Styling listing elements*/
 .listenelement{
     list-style:none;
 }
@@ -37,6 +39,7 @@
 	font-weight: bold;
 }
 
+/*Styling listing elements from my cookbook*/
 .listenlink2{
     background: #2F657F;
     color:#ccc;

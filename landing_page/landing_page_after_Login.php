@@ -8,9 +8,6 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <!--
-    <title>Mein eigenes Kochbuch</title>
-    -->
     <title>My own cookbook</title>
     <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
     <link href="landing_page.css" rel="stylesheet" type="text/css">
@@ -19,6 +16,7 @@ session_start();
     <script src="slidebar.js"></script>
 </head>
 <body class="landing_page_login" onload="">
+<!--Header with Login-Button-->
 <header>
 <a href="logout.php" style="text-decoration: none">
      <button class="button">
@@ -29,13 +27,8 @@ session_start();
     </button></a>
 </header>
 
+<!--Content-->
 <article>
-    <!--
-    <h1 align="center">Willkommen!</h1>
-    <p>Viel Spaß beim Bearbeiten oder Erweitern deines persönlichen Kochbuches! <br>
-       Nutze die vielfältigen Funktionen und erschaffe eine Welt des Geschmacks und der Vielfalt. Schließe dich mit Freunden und Familie zusammen, um dein Kochbuch Stück für Stück zu erweitern.
-    </p>
-    -->
     <div id="intro">
         <h1 align="center">Welcome!</h1>
         Have fun editing or expanding your personal cookbook! <br>
@@ -45,9 +38,10 @@ session_start();
     </div>
 </article>
 
+<!--Sidebar-->
 <div id="sidebar">
-
     <ul class="liste">
+    <!--Sidebar listing elements-->
         <li class="listenelement"><a class="listenlink" href="../user_profil/my_profil.php">My Profile</a></li>
         <li class="listenelement"><a class="listenlink" href="../cookbook/my_cookbook.php">My Cookbook</a></li>
             <ul>
