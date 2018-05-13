@@ -163,7 +163,34 @@ header {
 	padding: 0.9em 2em;
 }
 
+.recipe_name:hover{
+	box-shadow: 3px 3px 6px #10222B;
+    transform: translateY(-3px);
+	font-weight: bold;
+}
+
 .whole_recipe{
 	position:relative;
+	left:3%;
+	width: 90%;
+	padding: 2%;
+	padding-top: 0;
+	border-radius: 5px;
+	border-style: solid;
+	border-width: 3px;
+	border-color: #55ca64;
+}
+
+.process{
+	position:relative;
 	left:5%;
+}
+
+textarea {
+    resize: none;
+}
+
+.pencil_img{
+	position: relative;
+	top: 10%;
 }

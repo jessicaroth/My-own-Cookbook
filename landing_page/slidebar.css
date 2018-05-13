@@ -32,6 +32,11 @@
     padding:10px;
     text-decoration: none;
 }
+
+.listenlink:hover{
+	font-weight: bold;
+}
+
 .listenlink2{
     background: #2F657F;
     color:#ccc;
@@ -40,6 +45,10 @@
     width:180px;
     padding:10px;
     text-decoration: none;
+}
+
+.listenlink2:hover{
+	font-weight: bold;
 }
 
 #sidebar-btn{

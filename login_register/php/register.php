@@ -1,25 +1,30 @@
 <?php
 session_start();
 
-
-$first_name = $_POST["first_name"];
-$last_name = $_POST["last_name"];
-$email = $_POST["email"];
-$password = $_POST["password"];
+  //Entered data
+  $first_name = $_POST["first_name"];
+  $last_name = $_POST["last_name"];
+  $email = $_POST["email"];
+  $password = $_POST["password"];
  
- create_db();
- create_table();
- $count = check_email($email);
- if($count == 0){
-	 $password = crypt($password, '$5$rounds=5000$sdhfkjicejmfcmoewlkllkldkmfxokewo$');
-	 echo $password;
- register_into_db($first_name, $last_name, $email, $password); 
- }
- else{
- echo "email already taken";
- header('Location:./../../login_register/login_register.html');
- //TODO
- }
+  //Create database "my-own-cookbook" if not existant
+  create_db();
+  
+  //Create table "user" if not existant
+  create_table();
+  
+  //Check if email already exists
+  $count = check_email($email);
+  if($count == 0){
+    $password = crypt($password, '$5$rounds=5000$sdhfkjicejmfcmoewlkllkldkmfxokewo$');
+	echo $password;
+	//Enter userdata into table "user"
+    register_into_db($first_name, $last_name, $email, $password); 
+  }
+  else{
+    echo "email already taken";
+    header('Location:./../../login_register/login_register.php');
+  }
  	
 
 function connect_mysql_db(){
@@ -105,7 +110,7 @@ function register_into_db($first_name, $last_name, $email, $password) {
 	echo "Sucessfully Registered";
 	$_SESSION["email"] = $email;
 	//echo "Done PW" .$realpw ."<br/>";
-	header('Location:./../../landing_page/landing_page_after_Login.html'); 
+	header('Location:./../../landing_page/landing_page_after_Login.php'); 
 		
     $mysqli->close();
   }

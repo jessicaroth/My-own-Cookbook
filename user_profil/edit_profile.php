@@ -15,7 +15,7 @@ if (trim($newpw) != ''){
 echo "not empty";
 check_pw ($email,$oldpw, $newpw);
 }
-header('Location:.\my_profil.html'); 
+header('Location:.\my_profil.php'); 
 
 
 function connect_mysql_oo() {
@@ -42,7 +42,7 @@ function edit_profile($first_name, $last_name, $email) {
     }
 	
 	echo "Sucessfully Changed";
-	//header('Location:./../../landing_page/landing_page_after_Login.html'); 
+	//header('Location:./../../landing_page/landing_page_after_Login.php'); 
 		
     $mysqli->close();
   }
@@ -94,7 +94,7 @@ function edit_pw($email, $newpw) {
     }
 	
 	echo "Sucessfully Changed PW";
-	//header('Location:./../../landing_page/landing_page_after_Login.html'); 
+	//header('Location:./../../landing_page/landing_page_after_Login.php'); 
 		
     $mysqli->close();
   }

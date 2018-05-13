@@ -1,6 +1,7 @@
 
 function showRecipes(category) {
-	//document.location.href = 'show_recipes.php';
+	$.post('check_logged_in.php');
+	
 	$.post('show_recipes.php', {category: category}).done(function(res) {
 	    $("#recipes").html(res);
 	    $("#oneRecipe").html("");

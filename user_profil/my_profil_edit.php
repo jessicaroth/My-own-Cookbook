@@ -3,82 +3,32 @@ session_start();
 	if(isset($_SESSION["email"])) {
 	?>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Rezepte</title>
+    <meta charset="UTF-8">
+    <title>My profil</title>
     <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
     <link href="../landing_page/landing_page.css" rel="stylesheet" type="text/css">
     <link href="../landing_page/slidebar.css" rel="stylesheet" type="text/css">
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="../landing_page/slidebar.js"></script>
-    <script src="ingredient.js"></script>
+	<script src="show_profile.js"></script>
 </head>
-
-<body class="cookbook">
+<body class="landing_page_login" onload="showProfile('true')">
 <header>
-    <button class="button"><a href="../landing_page/logout.php" style="text-decoration: none">
+<a href="../landing_page/logout.php" style="text-decoration: none">
+    <button class="button">
         <div class="pattern">
             <div class="target inner bg1"></div>
         </div>
         <div class="text">Log Out</div>
-    </a>
-    </button>
+    </button></a>
 </header>
 
 <article>
-    <h1 align="center">Adding a new recipe</h1>
-    <p>
-        <form action="create_a_new_recipe.php" method="post">
-		<table id="create_new_recipe">
-		<tr>
-    <p><td><label>
-        <b>Name<span class="req">*</span></b>
-    </label></td>
-        <td><input name="name_recipe" type="text" size="50" maxlength="50" value="" required></td>
-    </p>
-	</tr>
-	<tr><p>
-	<td><label>
-        <b>Category<span class="req">*</span></b>
-    </label>
-	</td><td>
-    <select name="category" size="1" required>
-        <option>drinks</option>
-        <option>appetizers</option>
-        <option>main courses</option>
-        <option>dessert</option>
-        <option>snacks</option>
-        <option>miscellaneous</option>
-    </select></td>
-    </p></tr>
-    <tr><p>
-    <td><b>For </b></td>
-	<td><input name="number_person" size="1" maxlength="3" required> Person(s)</td>
-    </p></tr>
-
-    <!--Hier muss ich mir noch was überlegen, wie ich die Zutaten schön darstelle-->
-    <tr><div name="ingredients" id="ingredients">
-        <td><label>
-            <b>Ingredients<span class="req">*</span></b>
-        </label></td>
-        <td><input name="ingredient_0" type="text" size="20" maxlength="30" required>
-        </td>
-    </div></tr>
-	</table>
-    <br/>
-    <input class="smallbutton" type="button" name="add_ingredient" value="Add ingredient" onclick="addFields()">
-
-    <p><label>
-        <b>Ablauf<span class="req">*</span></b>
-    </label></p>
-    <textarea cols="90" rows="10" name="process" required></textarea>
-
-    <br/><br/>
-    <input class="smallbutton" type="submit" value="Saving">
-    </form>
-
+    <h1 align="center">My profil</h1>
+    <p id="profile">
     </p>
 </article>
 
@@ -109,14 +59,8 @@ session_start();
 
 </div>
 
+
 </body>
-
-
-<script>
-    //hier am besten noch eine bessere Variante finden, um eine globale Variable zu definieren
-    var id = 0;
-</script>
-
 </html>
 
 <?php

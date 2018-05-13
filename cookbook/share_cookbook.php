@@ -3,6 +3,9 @@ session_start();
 
 if (isset($_POST)) {
 	$email = $_POST["email"];
+	
+
+
 	$email_submitter = $_SESSION["email"]; 
 	$category = $_POST["category"];
 	
@@ -21,7 +24,7 @@ if (isset($_POST)) {
 	//echo "Email doesnt exist";
 	}
 	
-	header('Location: .\share_my_cookbook.html');
+	header('Location: .\share_my_cookbook.php');
 	//echo "<script type='text/javascript'>alert('Test');</script>";
 }
   
