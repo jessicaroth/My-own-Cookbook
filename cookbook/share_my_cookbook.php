@@ -18,6 +18,7 @@ session_start();
 </head>
 <body class="cookbook">
 <header>
+<!--Header with Logout-Button-->
   <a href="../landing_page/logout.php" style="text-decoration: none">
     <button class="button">
         <div class="pattern">
@@ -27,14 +28,12 @@ session_start();
         </button>
     </a>
 </header>
-
+<!--Content, shows formular for sharing with friends-->
 <article>
     <h1 align="center">Share with friends</h1>
-    <p><!--Hier kannst du dein Kochbuch mit deinen Freunden teilen. Dafür musst du einfach in dem unteren Feld die
-        Email-Adresse eingeben! -->
-        Here you can share your cookbook or some part of it with your friends. Just enter your email address in the
+    <p>Here you can share your cookbook or some part of it with your friends. Just enter your email address in the
         field below and select the category.
-
+        <!--textfield for email-->
         <form action="share_cookbook.php" method="post">
             <div class="form">
                 <div class="tab-content">
@@ -47,6 +46,7 @@ session_start();
                 </div>
                 <div>
     <p><label>
+    <!--which category should be shared-->
         Category:<span class="req">*</span>
     </label>
         <select name="category" size="1" class="req">
@@ -61,15 +61,16 @@ session_start();
     </p>
     </div>
     </form>
+    <!--submit button-->
     <input type="submit" class="smallbutton" value="Confirm">
 </a>
     </input>
     </p>
 </article>
-
+<!--Sidebar-->
 <div id="sidebar">
-
     <ul class="liste">
+    <!--Sidebar listing elements-->
         <li class="listenelement"><a class="listenlink" href="../user_profil/my_profil.php">My Profile</a></li>
         <li class="listenelement"><a class="listenlink" href="../cookbook/my_cookbook.php">My Cookbook</a></li>
         <ul>

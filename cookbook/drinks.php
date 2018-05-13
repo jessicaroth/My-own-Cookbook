@@ -17,6 +17,7 @@ session_start();
 </head>
 <body class="getränke" onload="showRecipes('drinks')">
 <header>
+<!--Header with Logout-Button-->
 <a href="../landing_page/logout.php" style="text-decoration: none">
     <button class="button">
         <div class="pattern">
@@ -25,7 +26,7 @@ session_start();
         <div class="text">Log Out</div>
     </button></a>
 </header>
-
+<!--Content, shows recipes with button for adding new one-->
 <article>
     <h1 align="center">Recipes for drinks</h1>
     <p> Hier können die bisher erstellten Rezepte bestaunt werden.
@@ -36,10 +37,10 @@ session_start();
     <p id="recipes"></p>
     <div id="oneRecipe"></div>
 </article>
-
+<!--Sidebar-->
 <div id="sidebar">
-
     <ul class="liste">
+    <!--Sidebar listing elements-->
         <li class="listenelement"><a class="listenlink" href="../user_profil/my_profil.php">My Profile</a></li>
         <li class="listenelement"><a class="listenlink" href="../cookbook/my_cookbook.php">My Cookbook</a></li>
         <ul>
