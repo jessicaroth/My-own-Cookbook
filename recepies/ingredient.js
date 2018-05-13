@@ -1,3 +1,4 @@
+//function for adding fields for additional ingredients
 function addFields(){
 	
 	 id = id + 1 || 0;

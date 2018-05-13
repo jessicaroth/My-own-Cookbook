@@ -18,13 +18,15 @@ session_start();
 
 <body class="cookbook">
 <header>
-    <button class="button"><a href="../landing_page/logout.php" style="text-decoration: none">
+<!--Logout button-->
+<a href="../landing_page/logout.php" style="text-decoration: none">
+    <button class="button">
         <div class="pattern">
             <div class="target inner bg1"></div>
         </div>
         <div class="text">Log Out</div>
-    </a>
     </button>
+    </a>
 </header>
 
 <article>
@@ -33,6 +35,7 @@ session_start();
         <form action="create_a_new_recipe.php" method="post">
 		<table id="create_new_recipe">
 		<tr>
+		<!--textfields for adding information about recipe-->
     <p><td><label>
         <b>Name<span class="req">*</span></b>
     </label></td>
@@ -41,6 +44,7 @@ session_start();
 	</tr>
 	<tr><p>
 	<td><label>
+	<!--categories to choose for recipe-->
         <b>Category<span class="req">*</span></b>
     </label>
 	</td><td>
@@ -57,8 +61,6 @@ session_start();
     <td><b>For </b></td>
 	<td><input name="number_person" size="1" maxlength="3" required> Person(s)</td>
     </p></tr>
-
-    <!--Hier muss ich mir noch was überlegen, wie ich die Zutaten schön darstelle-->
     <tr><div name="ingredients" id="ingredients">
         <td><label>
             <b>Ingredients<span class="req">*</span></b>
@@ -68,6 +70,7 @@ session_start();
     </div></tr>
 	</table>
     <br/>
+    <!--Submit button for adding ingredients-->
     <input class="smallbutton" type="button" name="add_ingredient" value="Add ingredient" onclick="addFields()">
 
     <p><label>
@@ -76,12 +79,13 @@ session_start();
     <textarea cols="90" rows="10" name="process" required></textarea>
 
     <br/><br/>
+    <!--Submit button-->
     <input class="smallbutton" type="submit" value="Saving">
     </form>
 
     </p>
 </article>
-
+<!--Navigation sidebar-->
 <div id="sidebar">
 
     <ul class="liste">
