@@ -17,6 +17,7 @@ session_start();
 </head>
 <body class="landing_page_login" onload="showProfile('true')">
 <header>
+<!--Header with Logout-Button-->
 <a href="../landing_page/logout.php" style="text-decoration: none">
     <button class="button">
         <div class="pattern">
@@ -26,15 +27,16 @@ session_start();
     </button></a>
 </header>
 
+<!--Content, shows profile for edit-->
 <article>
     <h1 align="center">My profil</h1>
     <p id="profile">
     </p>
 </article>
-
+<!--Sidebar-->
 <div id="sidebar">
-
     <ul class="liste">
+    <!--Sidebar listing elements-->
         <li class="listenelement"><a class="listenlink" href="../user_profil/my_profil.php">My Profile</a></li>
         <li class="listenelement"><a class="listenlink" href="../cookbook/my_cookbook.php">My Cookbook</a></li>
         <ul>

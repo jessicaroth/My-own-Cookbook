@@ -16,7 +16,7 @@ session_start();
     <script src="slidebar.js"></script>
 </head>
 <body class="landing_page_login" onload="">
-<!--Header with Login-Button-->
+<!--Header with Logout-Button-->
 <header>
 <a href="logout.php" style="text-decoration: none">
      <button class="button">
