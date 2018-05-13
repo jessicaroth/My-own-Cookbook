@@ -61,7 +61,7 @@ session_start();
     </p>
     </div>
     </form>
-    <input type="submit" class="smallbutton" value="Confirm"><a href="#">
+    <input type="submit" class="smallbutton" value="Confirm">
 </a>
     </input>
     </p>
