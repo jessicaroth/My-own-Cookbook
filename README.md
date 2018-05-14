@@ -1,5 +1,6 @@
 # My-own-Cookbook
 Webengineering Project at 4. Semester
+start page: landing_page/landing_page.html
 
 ## Preparation for development
 1.  Install [Webstorm](https://www.jetbrains.com/webstorm/download/)
